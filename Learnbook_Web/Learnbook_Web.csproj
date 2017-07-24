@@ -101,7 +101,7 @@
     <None Include="wwwroot\app\navigation\navigation.component.ts" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Learnbook_API\Learnbook_Data.csproj" />
+    <ProjectReference Include="..\Learnbook_Data\Learnbook_Data.csproj" />
   </ItemGroup>
 
 </Project>
