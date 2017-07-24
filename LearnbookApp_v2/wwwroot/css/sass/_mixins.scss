@@ -1,0 +1,44 @@
+﻿/*  Button-Type (Fill)
+    1st Param - Type
+    2nd Param - Main Color
+    3rd Param - Hover Color
+*/
+@mixin button-type($type, $color, $hoverColor) {
+    .learnbook-btn-#{$type} {
+        background-color: $color;
+
+        &:hover {
+            background-color: $hoverColor;
+        }
+    }
+}
+
+/* Button-Type (Outline) 
+    1st Param - Type
+    2nd Param - Border Color
+    3rd Param - Hover Color
+*/
+@mixin button-outline-type($type, $color, $hoverColor) {
+    .learnbook-btn-#{$type} {
+        border: none;
+        background-color: #EFEFEF;
+
+        &:hover {
+            background-color: $hoverColor;
+            color: $white;
+        }
+    }
+}
+
+@mixin transition($transitionProperty) {
+    transition: $transitionProperty;
+    -webkit-transition: $transitionProperty;
+    -moz-transition: $transitionProperty;
+}
+
+@mixin transform($transformProperty) {
+    transform: $transformProperty;
+    -webkit-transform: $transformProperty;
+    -moz-transform: $transformProperty;
+    -ms-transform: $transformProperty;
+}

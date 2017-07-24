@@ -1,0 +1,42 @@
+.contact-list {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 85%;
+
+    .contact-item {
+        margin-bottom: 40px;
+
+        &:first-child {
+            margin-top: 20px;
+        }
+
+        .pull-left {
+            margin-right: 15px;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: #EBEBEB;
+        }
+
+        .contact-body {
+            overflow: hidden;
+
+            .contact-point {
+                font-family: $montserrat;
+                font-weight: bold;
+                font-size: 1.125em;
+            }
+
+            .contact-name {
+                font-size: 12px;
+                color: #ADADAD;
+
+                i {
+                    margin: 0 0.7rem 0 0.5rem;
+                }
+            }
+        }
+    }
+}

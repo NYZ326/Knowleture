@@ -1,0 +1,197 @@
+.background-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.half-bg {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+
+    &.white-bg {
+        left: 0;
+        background-color: #fff;
+    }
+
+    &.blue-bg {
+        right: 0;
+        background-color: $blue;
+    }
+}
+
+.form-wrap {
+    position: relative;
+    overflow: hidden;
+    width: 325px;
+    height: 82.5vh;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    margin: 5rem auto 0;
+    z-index: 10;
+
+    h2 {
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        margin: 0 0 30px;
+        font-weight: 700;
+        text-align: center;
+        color: #141414;
+    }
+}
+
+.logo-wrap {
+    padding: 2.25em 0 0.75em;
+    
+    img {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.input-field {
+    position: relative;
+    margin-top: 1.4rem;
+
+    label {
+        color: #9e9e9e;
+        position: absolute;
+        top: 0.8rem;
+        font-size: 1rem;
+        cursor: text;
+        transition: 0.2s ease-out;
+        font-weight: normal;
+    }
+}
+
+#learnbook-login-form {
+    input:focus + label, input:valid + label {
+        top: -20px;
+        font-size: 0.8rem;
+        color: $yellow;
+    }
+}
+
+input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+    border-radius: 0;
+    outline: none;
+    height: 3rem;
+    width: 100%;
+    font-size: 1rem;
+    margin: 0 0 15px 0;
+    padding: 0;
+    box-shadow: none;
+    box-sizing: content-box;
+    transition: all 0.3s;
+
+    &:focus:not([readonly]) {
+        border-bottom: 1px solid $yellow;
+    }
+}
+
+textarea {
+    padding: .8rem 0 1.6rem 0;
+    min-height: 3rem;
+}
+
+input[type=text]+label:after, input[type=password]+label:after, input[type=email]+label:after, input[type=url]+label:after, input[type=time]+label:after, input[type=date]+label:after, input[type=datetime]+label:after, input[type=datetime-local]+label:after, input[type=tel]+label:after, input[type=number]+label:after, input[type=search]+label:after, textarea+label:after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 60px;
+    opacity: 0;
+    transition: .2s opacity ease-out, .2s color ease-out;
+}
+
+.login-btn {
+    background-color: $blue;
+    color: #fff;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: .5px;
+    border-radius: 24px;
+    cursor: pointer;
+    padding: $padding-8 $padding-16;
+    margin: 2.5rem 0 0;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+    -webkit-transition: 0.3s ease-out;
+    transition: 0.3s ease-out;
+
+    &:hover {
+        background-color: $blue-hover;
+        color: #fff;
+        box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+    }
+
+    &:focus {
+        color: #fff;
+    }
+}
+
+#login-loading {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-align-content: center;
+    align-content: center;
+    position: absolute;
+    bottom: 40%;
+    left: 50%;
+    color: $blue;
+    border-radius: 0;
+    text-align: center;
+    transform: translate(-50%, 100%);
+    -webkit-transform: translate(-50%, 100%);
+    
+    .loading-spinner {
+        width: 50px;
+	    height: 50px;
+	    border: 3px solid $blue;
+	    border-radius: 50%;
+	    border-left-color: transparent;
+	    border-right-color: transparent;
+	    animation: load-spin 575ms infinite linear;
+		-webkit-animation: load-spin 575ms infinite linear;
+		-moz-animation: load-spin 575ms infinite linear;
+    }
+}
+
+.field-validation-error span {
+    font-size: 0.925em;
+    color: $red;
+}
+
+.validation-summary-errors {
+    margin-top: 2.25em;
+
+    ul li {
+        color: $red;
+        font-size: 1.125em;
+        text-align: center;
+    }
+}
+
+.login-footer {
+    position: absolute;
+    bottom: 3rem;
+    width: 100%;
+    text-align: center;
+    color: #999;
+    font-size: 0.925em;
+}

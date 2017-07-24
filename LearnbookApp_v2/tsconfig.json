@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "noImplicitAny": false,
+    "outDir": "wwwroot/app",
+    "removeComments": false,
+    "rootDir": "App",
+    "sourceMap": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "target": "es6"
+  },
+  "compileOnSave": true,
+  "angularCompilerOptions": {
+    "debug": true,
+    "genDir": "."
+  },
+  "exclude": [
+    "node_modules",
+    "wwwroot",
+    "typings"
+  ]
+}

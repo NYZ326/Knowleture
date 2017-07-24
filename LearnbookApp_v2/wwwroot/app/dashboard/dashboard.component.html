@@ -1,0 +1,34 @@
+﻿<div class="learnbook-dashboard-container">
+    <div class="learnbook-dashboard-nav">
+        <ul class="dashboard-nav-list" *ngFor="let u of config.users">
+            <ng-container *ngIf="u.user == specs.userRole">
+                <li class="dashboard-nav-item" 
+                    *ngFor="let nav of u.nav; let i = index" 
+                    (click)="selectNav(i, nav.name)"
+                    [class.active]="activeId == i">
+                    {{nav.name}}
+                </li>
+                <li class="nav-list-line"></li>
+            </ng-container>
+        </ul>
+    </div>
+    <div class="learnbook-dashboard-content">
+        <div [ngSwitch]="activeNavType">
+            <ng-container *ngSwitchCase="'Courses'">
+                <course-view [courses]="courseData"></course-view>
+            </ng-container>
+            <ng-container *ngSwitchCase="'Assignments'">
+                <assignment-view [assignments]="assignmentData" [courses]="courseData"></assignment-view>
+            </ng-container>
+            <ng-container *ngSwitchCase="'Quizzes'">
+
+            </ng-container>
+            <ng-container *ngSwitchCase="'Grades'">
+
+            </ng-container>
+            <ng-container *ngSwitchCase="'Reports'">
+
+            </ng-container>
+        </div>
+    </div>
+</div>

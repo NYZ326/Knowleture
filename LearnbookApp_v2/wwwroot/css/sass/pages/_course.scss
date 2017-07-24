@@ -1,0 +1,68 @@
+﻿.course-content {
+    margin: 3rem;
+}
+
+.course-action {
+    position: relative;
+    padding: 3rem 2rem;
+
+    .display-title-container, .display-action-container {
+        display: inline-block;
+    }
+
+    .display-action-container {
+        position: absolute;
+        top: 50%;
+        right: 2rem;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        
+        .result-wrap {
+            display: inline-block;
+        }
+    }
+
+    h2 {
+        display: inline-block;
+        margin: 0;
+        font-size: 1.225em;
+    }
+
+    .course-total, .result-total {
+        display: inline-block;
+        color: $gray;
+        font-size: 0.875em;
+    }
+
+    .course-total {
+        margin-left: 1rem;
+        padding-left: 1.25rem;
+        border-left: 2px solid $gray;
+    }
+
+    .result-total {
+        margin-right: 2.25rem;
+    }
+}
+
+.course-search {
+    display: inline-block;
+    width: 25rem;
+
+    input:focus + label, input:valid + label {
+        top: -20px;
+        font-size: 1.1rem;
+        color: $yellow;
+    }
+
+    label {
+        top: 0.5rem;
+    }
+
+    .search-icon {
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+    }
+} 

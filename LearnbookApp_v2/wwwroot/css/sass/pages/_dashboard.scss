@@ -1,0 +1,523 @@
+#learnbook-dashboard {
+
+}
+
+.learnbook-dashboard-container {
+    margin-top: 80px;
+}
+
+.learnbook-dashboard-nav {
+    display: flex;
+    align-content: center;
+    width: 87.5%;
+    margin: 0 auto;
+    height: 70px;
+    min-height: 70px;
+    margin-bottom: 4rem;
+    background-color: transparent;
+    border-bottom: 1px solid #E4E4E6;
+    z-index: 1000;
+}
+
+.dashboard-nav-list {
+    position: relative;
+
+    .dashboard-nav-item {
+        float: left;
+        display: inline-block;
+        width: 110px;
+        text-align: center;
+        padding: 1.9rem 0;
+        background-color: transparent;
+        cursor: pointer;
+        font-weight: normal;
+        color: #bdbdbd;
+        font-size: 0.925em;
+        @include transition(all 300ms ease-out);
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+
+        @for $i from 0 to 5 {
+            &:nth-child(#{$i}).active ~ .nav-list-line {
+                @include transform(translate3d(($i - 1) * 100%, 0, 0));
+            }
+        }
+
+        &.active {
+            font-weight: bold;
+            color: $black;
+        }
+    }
+
+    .nav-list-line {
+        position: absolute;
+        top: 95%;
+        left: 0;
+        width: 110px;
+        height: 4px;
+        pointer-events: none;
+        background-color: $blue;
+        -webkit-transition: -webkit-transform 0.5s;
+        transition: transform 0.5s;
+        -webkit-transition-timing-function: cubic-bezier(1, 0.01, 0, 1);
+        -webkit-transition-timing-function: cubic-bezier(1, 0.01, 0, 1.22);
+        transition-timing-function: cubic-bezier(1, 0.01, 0, 1.22);
+    }
+}
+
+.learnbook-dashboard-content {
+    min-height: calc(100vh - 277.4px);
+}
+
+
+//=== Global Dashboard View ===/
+.dashboard-view-container {
+    width: 87.5%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.view-actions {
+    position: absolute;
+    top: -8rem;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+
+    .view-action-dropdown {
+        display: inline-block;
+        cursor: pointer;
+        position: absolute;
+        left: 50%;
+        @include transform(translateX(-50%));
+
+        &.show {
+            .learnbook-btn-primary-outline {
+                color: $blue;
+                background-color: $white;
+                box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.08), 0 1px 18px 0 rgba(0, 0, 0, 0.06), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        .learnbook-btn-primary-outline {
+            padding: 1rem;
+            background-color: $white;
+            box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.04), 0 1px 18px 0 rgba(0, 0, 0, 0.02), 0 3px 5px -1px rgba(0, 0, 0, 0.01);
+
+            &:hover {
+                color: $blue;
+                background-color: $white;
+                box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.08), 0 1px 18px 0 rgba(0, 0, 0, 0.06), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        .dropdown-toggle:after {
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            left: 50%;
+            padding: 0;
+            border: none;
+            border-radius: 0;
+            box-shadow: 0 0 1px rgba(76, 86, 103, 0.25), 0 2px 18px rgba(31, 37, 50, 0.32);
+            margin-left: -70px;
+
+            .filter-list li {
+                display: flex;
+                align-content: center;
+                justify-content: center;
+                padding: 0.8rem 0;
+                color: $black;
+                font-size: 0.825rem;
+                letter-spacing: 0.1rem;
+                font-weight: bold;
+                text-transform: uppercase;
+                border-left: 3px solid transparent;
+                @include transition(all 0.3s ease-out);
+
+                &:hover {
+                    border-left-color: $yellow;
+                }
+
+                &.active {
+                    border-left-color: $yellow;
+                }
+            }
+        }
+    }
+
+    .view-action-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        .learnbook-btn-logo {
+            position: relative;
+            top: -1.2rem;
+            background-color: $blue;
+            padding: 0;
+            padding-right: 0.8rem;
+            height: 42px;
+            margin-right: 1rem;
+            box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.04), 0 1px 18px 0 rgba(0, 0, 0, 0.02), 0 3px 5px -1px rgba(0, 0, 0, 0.01);
+
+            &:hover {
+                background-color: $blue-hover;
+                box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.08), 0 1px 18px 0 rgba(0, 0, 0, 0.06), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+            }
+
+            span {
+                position: relative;
+                top: -1.2rem;
+                color: $white;
+            }
+        }
+
+        .dashboard-action-icon {
+            display: inline-block;
+            padding: 0;
+            cursor: pointer;
+            width: 42px;
+            height: 42px;
+            border: 1px solid $gray;
+            @include transition(all 0.3s ease-out);
+
+            &:first-of-type {
+                position: relative;
+                left: 0.2rem;
+                border-right-color: transparent;
+                border-top-left-radius: 2px;
+                border-bottom-left-radius: 2px;
+            }
+
+            &:last-of-type {
+                border-top-right-radius: 2px;
+                border-bottom-right-radius: 2px;
+            }
+
+            &:hover {
+                .svg-icon path {
+                    fill: $blue;
+                }
+            }
+
+            &.active {
+                background-color: $white;
+                box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.04), 0 1px 18px 0 rgba(0, 0, 0, 0.02), 0 3px 5px -1px rgba(0, 0, 0, 0.01);
+
+                .svg-icon path {
+                    fill: $blue;
+                }
+            }
+
+            .svg-icon {
+                width: 3rem;
+                height: 3rem;
+            }
+        }
+    }
+
+    .dashboard-action-filter-icon {
+        display: inline-block;
+        padding: 0;
+        cursor: pointer;
+        width: 42px;
+        height: 42px;
+        border: 1px solid $gray;
+        background-color: $white;
+        border-radius: 2px;
+        box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.04), 0 1px 18px 0 rgba(0, 0, 0, 0.02), 0 3px 5px -1px rgba(0, 0, 0, 0.01);
+        @include transition(all 0.3s ease-out);
+
+        &:hover {
+            box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.08), 0 1px 18px 0 rgba(0, 0, 0, 0.06), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+
+            .svg-icon path {
+                fill: $blue;
+            }
+        }
+    }
+
+    .popover-dropdown {
+        &.show {
+            .dashboard-action-filter-icon {
+                box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.08), 0 1px 18px 0 rgba(0, 0, 0, 0.06), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+
+                .svg-icon path {
+                    fill: $blue;
+                }
+            }
+        }
+
+        .dropdown-menu {
+            padding: 0;
+            border: none;
+            border-radius: 0;
+            box-shadow: 0 0 1px rgba(76, 86, 103, 0.25), 0 2px 18px rgba(31, 37, 50, 0.32);
+        }
+    }
+}
+//=== END Global Dashboard View ===/
+
+
+//=== Course Dashboard View ===/
+#course-dashboard-view {
+    .course-card-dropdown {
+        position: absolute;
+        right: 0.25rem;
+        top: 0.5rem;
+
+        &.show {
+            .logo-btn .svg-icon path {
+                fill: $yellow;
+            }
+        }
+
+        .learnbook-dropdown-menu {
+            padding: 0;
+            width: 10rem;
+        }
+
+        .logo-btn {
+            border: none;
+            width: 46px;
+            height: 46px;
+            padding: 0;
+        }
+    }
+}
+
+.course-card-list {
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-align-content: center;
+    align-content: center;
+    position: relative;
+
+    .course-card-item {
+        display: inline-block;
+        width: 22.5%;
+        max-width: 330px;
+        height: 30rem;
+        cursor: pointer;
+        margin-right: 3rem;
+        box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.04), 0 1px 18px 0 rgba(0, 0, 0, 0.02), 0 3px 5px -1px rgba(0, 0, 0, 0.01);
+        background-color: $white;
+        transition: all 0.3s ease-out;
+        -webkit-transition: all 0.3s ease-out;
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+
+        &:hover {
+            box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.08), 0 1px 18px 0 rgba(0, 0, 0, 0.06), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+        }
+
+        .top-half-card {
+            position: relative;
+            background-color: $blue;
+            height: 40%;
+            z-index: 10;
+
+            .course-icon {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                -webkit-transform: translate(-50%, -50%);
+                width: 10rem;
+                height: 10rem;
+            }
+
+            .course-card-dropdown {
+                right: 1rem;
+                top: 1.25rem;
+
+                .logo-btn {
+                    width: 20px;
+                    height: 30px;
+                    background-color: $blue;
+
+                    .svg-icon {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+        }
+
+        .bottom-half-card {
+            position: relative;
+            height: 60%;
+            padding: 1.5rem 2rem;
+
+            .course-title-content {
+                .course-code {
+                    display: block;
+                    font-size: 0.825em;
+                    color: #bdbdbd;
+                    font-weight: 700;
+                    margin-bottom: 0.5rem;
+                }
+
+                h3 {
+                    font-size: 1.225em;
+                    letter-spacing: 0.025rem;
+                    margin: 0;
+                }
+            }
+
+            .course-stat-content {
+                position: absolute;
+                left: 50%;
+                bottom: 2.5rem;
+                width: 85%;
+                padding-top: 1rem;
+                border-top: 2px solid #f4f4f4;
+                transform: translateX(-50%);
+                -webkit-transform: translateX(-50%);
+
+                .stat-content {
+                    display: inline-block;
+
+                    &.course-student {
+                        float: left;
+                    }
+
+                    &.course-term {
+                        float: right;
+                    }
+
+                    h3 {
+                        font-size: 0.825em;
+                    }
+
+                    .student-number {
+                        font-size: 2em;
+                        color: $blue;
+                    }
+
+                    .term-text {
+                        display: block;
+                        margin-top: 1.25rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.course-list {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.04), 0 1px 18px 0 rgba(0, 0, 0, 0.02), 0 3px 5px -1px rgba(0, 0, 0, 0.01);
+
+    .course-item {
+        display: flex;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        -webkit-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        -webkit-justify-content: flex-start;
+        justify-content: flex-start;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-align-content: center;
+        align-content: center;
+        padding: 0.6rem 1.5rem;
+        background-color: #fff;
+        border-bottom: 2px dotted #f5f5f5;
+        @include transition(all 0.3s ease-out);
+
+        &:last-of-type {
+            border-bottom: none;
+        }
+
+        &.course-item-legend {
+            background-color: #fff;
+            padding: 2.4rem 1.5rem;
+
+            .course-legend-title {
+                width: calc(100% / 5);
+                text-align: center;
+                font-weight: 700;
+                font-family: $montserrat;
+                font-size: 1.05rem;
+            }
+        }
+
+        .course-item-wrap {
+            width: calc(100% / 5);
+            text-align: center;
+
+            &.course-title {
+                text-align: left;
+
+                .course-icon {
+                    display: inline-block;
+                    width: 3.5rem;
+                    height: 3.5rem;
+                }
+
+                .course-title-content {
+                    display: inline-block;
+                    position: relative;
+                    top: -0.75rem;
+                    margin-left: 0.75rem;
+                }
+
+                .course-code {
+                    display: block;
+                    font-size: 0.725em;
+                    color: $gray;
+                    font-weight: 700;
+                    margin-bottom: 0.5rem;
+                }
+
+                h3 {
+                    font-size: 1.025em;
+                    margin: 0;
+                }
+            }
+
+            &.course-buttons {
+                position: relative;
+                text-align: center;
+
+                .course-card-dropdown {
+                    position: relative !important;
+                    right: auto !important;
+                    top: auto !important;
+                    display: inline-block;
+
+                    .logo-btn {
+                        background-color: $white;
+                    }
+                }
+            }
+        }
+    }
+}
+//=== END Course Dashboard View ===/
+
+
+//=== Assignment Dashboard View ===/
+#assignment-dashboard-view {
+    .view-actions {
+        .filter-assignment-dropdown-menu {
+            min-width: 20rem;
+            margin-left: -140px;
+        }
+    }
+}
+//=== END Assignment Dashboard View ===/
+
