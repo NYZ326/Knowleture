@@ -20,6 +20,9 @@ let CourseViewComponent = class CourseViewComponent {
         this.selectedCourses = 'All';
     }
     // Functions
+    //open(content) {
+    //    this.modalService.open(content, { windowClass: 'learnbook-modal' });
+    //}
     switchGridView(view) {
         this.activeGrid = view;
     }

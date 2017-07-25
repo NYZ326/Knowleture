@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="view-action-button">
-            <button class="btn learnbook-btn learnbook-btn-logo">
+            <button class="btn learnbook-btn learnbook-btn-logo" data-toggle="modal" data-target="#addCourseModal">
                 <svg version="1.1" class="svg-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	                 viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
                     <g>
@@ -419,5 +419,58 @@
                 </li>
             </ul>
         </ng-container>
+    </div>
+</div>
+
+<!-- Add Course Modal -->
+<div class="modal learnbook-modal learnbook-modal-long fade" id="addCourseModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <svg version="1.1" class="svg-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	                 viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+                    <g>
+	                    <g>
+		                    <g>
+			                    <path fill="#009FF5" d="M20,28.5c-4.7,0-8.5-3.8-8.5-8.5s3.8-8.5,8.5-8.5s8.5,3.8,8.5,8.5S24.7,28.5,20,28.5z M20,12.5
+				                    c-4.1,0-7.5,3.4-7.5,7.5s3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5S24.1,12.5,20,12.5z"/>
+		                    </g>
+		                    <g>
+			                    <g>
+				                    <path fill="#009FF5" d="M22.5,20.5h-5c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h5c0.3,0,0.5,0.2,0.5,0.5S22.8,20.5,22.5,20.5z"/>
+			                    </g>
+			                    <g>
+				                    <path fill="#009FF5" d="M20,23c-0.3,0-0.5-0.2-0.5-0.5v-5c0-0.3,0.2-0.5,0.5-0.5s0.5,0.2,0.5,0.5v5C20.5,22.8,20.3,23,20,23z"/>
+			                    </g>
+		                    </g>
+	                    </g>
+                    </g>
+                </svg>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <svg version="1.1" class="svg-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	                     viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+                        <g>
+	                        <g>
+		                        <g>
+			                        <path fill="#bdbdbd" d="M25,25.5c-0.1,0-0.3,0-0.4-0.1l-10-10c-0.2-0.2-0.2-0.5,0-0.7s0.5-0.2,0.7,0l10,10c0.2,0.2,0.2,0.5,0,0.7
+				                        C25.3,25.5,25.1,25.5,25,25.5z"/>
+		                        </g>
+		                        <g>
+			                        <path fill="#bdbdbd" d="M15,25.5c-0.1,0-0.3,0-0.4-0.1c-0.2-0.2-0.2-0.5,0-0.7l10-10c0.2-0.2,0.5-0.2,0.7,0s0.2,0.5,0,0.7l-10,10
+				                        C15.3,25.5,15.1,25.5,15,25.5z"/>
+		                        </g>
+	                        </g>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
     </div>
 </div>

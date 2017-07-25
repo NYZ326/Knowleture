@@ -240,84 +240,6 @@ input:not([type]):disabled, input:not([type])[readonly="readonly"], input[type=t
   display: none; }
 
 /* End Bootstrap property overrides*/
-/* Modal Properties */
-.modal-backdrop.in {
-  opacity: 0.2; }
-
-.modal {
-  display: flex !important;
-  display: -webkit-flex !important;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  align-items: center;
-  -webkit-align-content: center;
-  align-content: center; }
-
-.modal-content {
-  box-shadow: none; }
-
-.modal-header {
-  border: none;
-  text-align: center; }
-
-.modal-title {
-  color: #000;
-  font-weight: bold;
-  font-size: 1.25em;
-  margin-top: 0.5rem; }
-
-.modal-body {
-  padding: 24px; }
-
-.modal-footer {
-  padding: 0; }
-
-.close {
-  float: none;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  opacity: 1;
-  width: 4rem; }
-  .close:focus {
-    outline: 0; }
-  .close .svg-icon path {
-    fill: #e6e6e6; }
-
-.learnbook-modal-confirm {
-  display: block;
-  width: 100%;
-  padding: 8px 18px;
-  text-align: center;
-  background-color: #009FF5;
-  color: #fff;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-  cursor: pointer;
-  transition: all 0.3s ease-out;
-  -webkit-transition: all 0.3s ease-out; }
-  .learnbook-modal-confirm.confirm-disabled {
-    pointer-events: none;
-    color: rgba(255, 255, 255, 0.5); }
-    .learnbook-modal-confirm.confirm-disabled .svg-icon path {
-      fill: rgba(255, 255, 255, 0.5); }
-  .learnbook-modal-confirm:hover {
-    color: #fff; }
-  .learnbook-modal-confirm span {
-    display: inline-block;
-    position: relative;
-    top: -1.5rem; }
-  .learnbook-modal-confirm .svg-icon {
-    width: 40px; }
-    .learnbook-modal-confirm .svg-icon path {
-      fill: #fff; }
-
-/* End Modal Properties */
 /* mCustom Scrollbar Properties */
 .mCSB_container {
   width: 100% !important; }
@@ -1764,4 +1686,68 @@ input[type=text] + label:after, input[type=password] + label:after, input[type=e
 .thumbnail-lg-img {
   width: 74px;
   height: 74px; }
+
+.learnbook-modal.fade .modal-dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  transform: translate(-50%, -100%);
+  -webkit-transform: translate(-50%, -100%);
+  -moz-transform: translate(-50%, -100%);
+  -ms-transform: translate(-50%, -100%);
+  transition: all 300ms ease-out;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out; }
+
+.learnbook-modal.show .modal-dialog {
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+
+.learnbook-modal .modal-content .modal-header > .svg-icon {
+  width: 175px;
+  height: 175px;
+  margin: 0 auto; }
+
+.learnbook-modal-long .modal-dialog {
+  width: 400px; }
+
+.learnbook-modal-long .modal-content {
+  height: 75vh; }
+
+.modal .modal-content {
+  box-shadow: none; }
+
+.modal .modal-header {
+  border: none;
+  text-align: center; }
+
+.modal .modal-title {
+  color: #000;
+  font-weight: bold;
+  font-size: 1.25em;
+  margin-top: 0.5rem; }
+
+.modal .modal-body {
+  padding: 24px; }
+
+.modal .modal-footer {
+  padding: 0; }
+
+.modal .close {
+  float: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 1;
+  width: 3.5rem; }
+  .modal .close:focus {
+    outline: 0; }
+  .modal .close .svg-icon path {
+    fill: #e6e6e6; }
+
+.modal-backdrop.in {
+  opacity: 0.2; }
 

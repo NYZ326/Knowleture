@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { UserSpecs } from './../../common/models/userSpecs';
 
@@ -17,11 +18,15 @@ export class CourseViewComponent{
     selectedCourses: string = 'All';
 
     // Constructor
-    constructor() {
+    constructor(private modalService: NgbModal) {
 
     }
 
     // Functions
+    open(content) {
+        this.modalService.open(content, { windowClass: 'learnbook-modal' });
+    }
+
     switchGridView(view: string) {
         this.activeGrid = view;
     }
