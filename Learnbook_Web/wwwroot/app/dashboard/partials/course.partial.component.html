@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="view-action-button">
-            <button class="btn learnbook-btn learnbook-btn-logo" data-toggle="modal" data-target="#addCourseModal">
+            <button class="btn learnbook-btn learnbook-btn-logo" data-toggle="modal" data-target="#add-course-modal">
                 <svg version="1.1" class="svg-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	                 viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
                     <g>
@@ -423,7 +423,7 @@
 </div>
 
 <!-- Add Course Modal -->
-<div class="modal learnbook-modal learnbook-modal-long fade" id="addCourseModal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal learnbook-modal learnbook-modal-long fade" id="add-course-modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -465,11 +465,54 @@
                 </button>
             </div>
             <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <h3>Add New Course</h3>
+                <form class="add-course-form" name="add-course-form" novalidate>
+                    <div id="add-course-form-slider"
+                         class="carousel slide"
+                         data-right="carousel"
+                         data-wrap="false"
+                         data-interval="false">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="form-group row">
+                                    <div class="input-field col col-6">
+                                        <input type="text" id="course-code" name="course-code" required />
+                                        <label for="course-code">Course Code</label>
+                                    </div>
+                                    <div class="input-field col col-6">
+                                        <input type="text" id="course-id" name="course-id" required />
+                                        <label for="course-id">Course ID</label>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="input-field col col-12">
+                                        <input type="text" id="course-title" name="course-title" required />
+                                        <label for="course-title">Title</label>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="input-field col col-12">
+                                        <input type="text" id="course-subject" name="course-subject" required />
+                                        <label for="course-subject">Subject</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="form-group row">
+                                    <div class="input-field col col-6">
+                                        <input type="text" id="course-credit" name="course-credit" required />
+                                        <label for="course-credit">Credits</label>
+                                    </div>
+                                    <div class="input-field col col-6">
+                                        <input type="text" id="course-year" name="course-year" required />
+                                        <label for="course-year">Term Year</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#add-course-form-slider" role="button" data-slide="next" class="btn learnbook-btn learnbook-btn-primary">Next</a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
