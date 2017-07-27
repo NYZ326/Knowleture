@@ -33,12 +33,6 @@ input:not([type]):disabled, input:not([type])[readonly="readonly"], input[type=t
     border-bottom: 1px dotted rgba(0,0,0,0.26);
 }
 
-input:focus + label, input:valid + label {
-    top: -20px;
-    font-size: 0.8rem;
-    color: $yellow;
-}
-
 .app-wrapper {
     width: 100%;
 }
@@ -298,6 +292,14 @@ input:focus + label, input:valid + label {
 
 .dropdown-toggle:after {
     display: none;
+}
+
+.carousel {
+    .carousel-inner {
+        .carousel-item.active {
+            flex-direction: column;
+        }
+    }
 }
 /* End Bootstrap property overrides*/
 

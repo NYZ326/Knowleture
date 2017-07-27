@@ -1,0 +1,17 @@
+﻿input[type="text"].text-input {
+    border: 1px solid #E4E7EC;
+    background-color: transparent;
+    border-radius: 2px;
+    height: 2.5rem;
+    padding: 0 0.8rem;
+    box-sizing: border-box;
+    z-index: 5;
+
+    &::-webkit-input-placeholder {
+        color: $gray;
+    }
+
+    &:focus {
+        border-color: $blue;
+    }
+}
