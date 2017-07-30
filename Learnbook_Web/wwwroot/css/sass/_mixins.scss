@@ -3,9 +3,10 @@
     2nd Param - Main Color
     3rd Param - Hover Color
 */
-@mixin button-type($type, $color, $hoverColor) {
+@mixin button-type($type, $bgColor, $fontColor, $hoverColor) {
     .learnbook-btn-#{$type} {
-        background-color: $color;
+        background-color: $bgColor;
+        color: $fontColor;
 
         &:hover {
             background-color: $hoverColor;

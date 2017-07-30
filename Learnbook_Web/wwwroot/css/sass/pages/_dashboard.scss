@@ -514,7 +514,7 @@
             h3 {
                 position: relative;
                 top: -0.65rem;
-                margin-bottom: 1rem;
+                margin-bottom: 0;
             }
 
             .form-group {
@@ -534,13 +534,18 @@
                 }
             }
         }
+    }
+}
 
-        .modal-footer {
-            .learnbook-btn {
-                color: $white;
-                padding: $padding-8 $padding-16;
-            }
-        }
+#add-course-form {
+    .learnbook-dropdown-menu {
+        width: auto;
+        margin: 0;
+        padding: 0;
+    }
+
+    .form-control-actions {
+        margin-top: 1.6rem;
     }
 }
 //=== END Course Dashboard View ===/

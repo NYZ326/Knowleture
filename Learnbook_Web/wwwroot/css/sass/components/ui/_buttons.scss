@@ -13,11 +13,11 @@
     }
 }
 
-@include button-type("default", $white, $gray);
-@include button-type("primary", $blue, $blue-hover);
+@include button-type("default", $white, $black, $gray);
+@include button-type("primary", $blue, $white, $blue-hover);
 @include button-outline-type("primary-outline", $blue, $blue-hover);
-@include button-type("danger", $red, $red-hover);
-@include button-type("logo", $white, transparent);
+@include button-type("danger", $red, $white, $red-hover);
+@include button-type("logo", $white, $black, transparent);
 
 .learnbook-btn-logo {
     .svg-icon {

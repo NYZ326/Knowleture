@@ -51,17 +51,15 @@
     @include transition(all .4s cubic-bezier(.7,0,.3,1));
 }
 
-.show .animated-dropdown {
+.dropdown.show .animated-dropdown {
     max-height: 20rem;
     opacity: 1;
     visibility: visible;
     @include transform(translate3d(0,3px,0));
 }
 
-.action-list {
-    .action-list-item {
-        text-align: center;
-
+.dropdown-list {
+    &.with-links {
         a {
             display: flex;
             align-content: center;
@@ -92,45 +90,31 @@
             }
         }
     }
-}
 
-.popover-dropdown {
-    .dropdown-menu {
-        &:before, &:after {
-            position: absolute;
-            display: block;
-            width: 0;
-            height: 0;
-            border-color: transparent;
-            border-style: solid;
+    .dropdown-list-item {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        padding: 0.8rem 0;
+        color: $black;
+        font-size: 0.825rem;
+        letter-spacing: 0.1rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-left: 3px solid transparent;
+        cursor: pointer;
+        @include transition(all 0.3s ease-out);
+
+        &.active {
+            border-left-color: $yellow;
         }
 
-        &:before {
-            content: "";
-            border-width: 11px;
+        &:hover {
+            border-left-color: $yellow;
         }
+    }
 
-        &:after {
-            content: "";
-            border-width: 10px;
-        }
-
-        &.dropdown-menu-right {
-            &:before {
-                right: 7.4%;
-                border-top-width: 0;
-                top: -11px;
-                margin-left: -11px;
-                border-bottom-color: rgba(0,0,0,.25);
-            }
-
-            &:after {
-                right: 8%;
-                border-top-width: 0;
-                top: -10px;
-                margin-left: -10px;
-                border-bottom-color: $white;
-            }
-        }
+    .dropdown-list-item-link {
+        text-align: center;
     }
 }

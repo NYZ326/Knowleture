@@ -5,9 +5,9 @@
                 {{selectedCourseAssignments}}
             </button>
             <div class="dropdown-menu animated-dropdown filter-assignment-dropdown-menu" aria-labelledby="filterAssignment">
-                <ul class="filter-list course-filter-list">
-                    <li (click)="filterCourseAssignments()" [ngClass]="{'active': selectedCourseAssignments == 'All'}">All</li>
-                    <li *ngFor="let c of courses" (click)="filterCourseAssignments(c.Course.Title)" [ngClass]="{'active': selectedCourseAssignments == c.Course.Title}">
+                <ul class="dropdown-list assignment-filter-list">
+                    <li class="dropdown-list-item" (click)="filterCourseAssignments()" [ngClass]="{'active': selectedCourseAssignments == 'All'}">All</li>
+                    <li class="dropdown-list-item" *ngFor="let c of courses" (click)="filterCourseAssignments(c.Course.Title)" [ngClass]="{'active': selectedCourseAssignments == c.Course.Title}">
                         {{c.Course.Title}}
                     </li>
                 </ul>

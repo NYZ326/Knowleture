@@ -15,3 +15,15 @@
         border-color: $blue;
     }
 }
+
+.form-dropdown-btn {
+    width: 100%;
+    border: 1px solid #E4E7EC;
+    border-radius: 2px;
+    background-color: #F7F8F9;
+    padding: 0.7rem 0.8rem;
+
+    &.dropdown-toggle:after {
+        display: inline-block;
+    }
+}
