@@ -16,6 +16,7 @@ export class CourseViewComponent{
     // Variables
     activeGrid: string = 'card';
     selectedCourses: string = 'All';
+    activeFormSection: number = 0;
 
     // Constructor
     constructor() {
@@ -23,10 +24,6 @@ export class CourseViewComponent{
     }
 
     // Functions
-    //open(content) {
-    //    this.modalService.open(content, { windowClass: 'learnbook-modal' });
-    //}
-
     switchGridView(view: string) {
         this.activeGrid = view;
     }
@@ -38,5 +35,13 @@ export class CourseViewComponent{
         else {
             this.selectedCourses = filter;
         }
+    }
+
+    prevSection() {
+        this.activeFormSection = 0;
+    }
+
+    nextSection() {
+        this.activeFormSection = 1;
     }
 }

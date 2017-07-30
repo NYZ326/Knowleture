@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+//import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { UserSpecs } from './../../common/models/userSpecs';
 
@@ -16,17 +16,14 @@ export class CourseViewComponent{
     // Variables
     activeGrid: string = 'card';
     selectedCourses: string = 'All';
+    activeFormSection: number = 0;
 
     // Constructor
-    constructor(private modalService: NgbModal) {
+    constructor() {
 
     }
 
     // Functions
-    open(content) {
-        this.modalService.open(content, { windowClass: 'learnbook-modal' });
-    }
-
     switchGridView(view: string) {
         this.activeGrid = view;
     }
@@ -38,5 +35,13 @@ export class CourseViewComponent{
         else {
             this.selectedCourses = filter;
         }
+    }
+
+    prevSection() {
+        this.activeFormSection = 0;
+    }
+
+    nextSection() {
+        this.activeFormSection = 1;
     }
 }

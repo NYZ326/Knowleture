@@ -18,11 +18,9 @@ let CourseViewComponent = class CourseViewComponent {
         // Variables
         this.activeGrid = 'card';
         this.selectedCourses = 'All';
+        this.activeFormSection = 0;
     }
     // Functions
-    //open(content) {
-    //    this.modalService.open(content, { windowClass: 'learnbook-modal' });
-    //}
     switchGridView(view) {
         this.activeGrid = view;
     }
@@ -33,6 +31,12 @@ let CourseViewComponent = class CourseViewComponent {
         else {
             this.selectedCourses = filter;
         }
+    }
+    prevSection() {
+        this.activeFormSection = 0;
+    }
+    nextSection() {
+        this.activeFormSection = 1;
     }
 };
 __decorate([

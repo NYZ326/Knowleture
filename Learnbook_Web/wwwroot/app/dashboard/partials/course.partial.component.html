@@ -467,99 +467,102 @@
             <div class="modal-body">
                 <h3>Add New Course</h3>
                 <form id="add-course-form" name="add-course-form" novalidate>
-                    <div class="edit-form-section">
-                        <div class="form-group row">
-                            <div class="col-sm-6">
-                                <label for="course-code">Course Code</label>
-                                <svg version="1.1" class="svg-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	                                     viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
-                                    <g>
-	                                    <g>
-		                                    <g>
-			                                    <g>
-				                                    <path fill="#009FF5" d="M20,23.5c-0.3,0-0.5-0.2-0.5-0.5v-3c0-0.3,0.2-0.5,0.5-0.5s0.5,0.2,0.5,0.5v3
-					                                    C20.5,23.3,20.3,23.5,20,23.5z"/>
-			                                    </g>
-			                                    <g>
-				                                    <path fill="#009FF5" d="M20,17.5c-0.1,0-0.3-0.1-0.4-0.1c-0.1-0.1-0.1-0.2-0.1-0.4c0-0.1,0-0.3,0.1-0.4c0.2-0.2,0.5-0.2,0.7,0
-					                                    c0.1,0.1,0.2,0.2,0.2,0.4c0,0.1-0.1,0.3-0.1,0.3C20.3,17.4,20.1,17.5,20,17.5z"/>
-			                                    </g>
-		                                    </g>
-		                                    <g>
-			                                    <path fill="#009FF5" d="M25.3,27.5H14.8c-1.2,0-2.3-1-2.3-2.3V14.8c0-1.2,1-2.3,2.3-2.3h10.5c1.2,0,2.3,1,2.3,2.3v10.5
-				                                    C27.5,26.5,26.5,27.5,25.3,27.5z M14.8,13.5c-0.7,0-1.3,0.6-1.3,1.3v10.5c0,0.7,0.6,1.3,1.3,1.3h10.5c0.7,0,1.3-0.6,1.3-1.3V14.8
-				                                    c0-0.7-0.6-1.3-1.3-1.3H14.8z"/>
-		                                    </g>
-	                                    </g>
-                                    </g>
-                                </svg>
-                                <input type="text" class="text-input" id="course-code" name="course-code" placeholder="ENGL" />
+                    <div class="form-section-container">
+                        <div class="form-section edit-form-section" [ngClass]="{'active': activeFormSection == 0}">
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label for="course-code">Course Code</label>
+                                    <svg version="1.1" class="svg-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	                                         viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+                                        <g>
+	                                        <g>
+		                                        <g>
+			                                        <g>
+				                                        <path fill="#009FF5" d="M20,23.5c-0.3,0-0.5-0.2-0.5-0.5v-3c0-0.3,0.2-0.5,0.5-0.5s0.5,0.2,0.5,0.5v3
+					                                        C20.5,23.3,20.3,23.5,20,23.5z"/>
+			                                        </g>
+			                                        <g>
+				                                        <path fill="#009FF5" d="M20,17.5c-0.1,0-0.3-0.1-0.4-0.1c-0.1-0.1-0.1-0.2-0.1-0.4c0-0.1,0-0.3,0.1-0.4c0.2-0.2,0.5-0.2,0.7,0
+					                                        c0.1,0.1,0.2,0.2,0.2,0.4c0,0.1-0.1,0.3-0.1,0.3C20.3,17.4,20.1,17.5,20,17.5z"/>
+			                                        </g>
+		                                        </g>
+		                                        <g>
+			                                        <path fill="#009FF5" d="M25.3,27.5H14.8c-1.2,0-2.3-1-2.3-2.3V14.8c0-1.2,1-2.3,2.3-2.3h10.5c1.2,0,2.3,1,2.3,2.3v10.5
+				                                        C27.5,26.5,26.5,27.5,25.3,27.5z M14.8,13.5c-0.7,0-1.3,0.6-1.3,1.3v10.5c0,0.7,0.6,1.3,1.3,1.3h10.5c0.7,0,1.3-0.6,1.3-1.3V14.8
+				                                        c0-0.7-0.6-1.3-1.3-1.3H14.8z"/>
+		                                        </g>
+	                                        </g>
+                                        </g>
+                                    </svg>
+                                    <input type="text" class="text-input" id="course-code" name="course-code" placeholder="ENGL" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="course-id">Course ID</label>
+                                    <svg version="1.1" class="svg-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	                                         viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+                                        <g>
+	                                        <g>
+		                                        <g>
+			                                        <g>
+				                                        <path fill="#009FF5" d="M20,23.5c-0.3,0-0.5-0.2-0.5-0.5v-3c0-0.3,0.2-0.5,0.5-0.5s0.5,0.2,0.5,0.5v3
+					                                        C20.5,23.3,20.3,23.5,20,23.5z"/>
+			                                        </g>
+			                                        <g>
+				                                        <path fill="#009FF5" d="M20,17.5c-0.1,0-0.3-0.1-0.4-0.1c-0.1-0.1-0.1-0.2-0.1-0.4c0-0.1,0-0.3,0.1-0.4c0.2-0.2,0.5-0.2,0.7,0
+					                                        c0.1,0.1,0.2,0.2,0.2,0.4c0,0.1-0.1,0.3-0.1,0.3C20.3,17.4,20.1,17.5,20,17.5z"/>
+			                                        </g>
+		                                        </g>
+		                                        <g>
+			                                        <path fill="#009FF5" d="M25.3,27.5H14.8c-1.2,0-2.3-1-2.3-2.3V14.8c0-1.2,1-2.3,2.3-2.3h10.5c1.2,0,2.3,1,2.3,2.3v10.5
+				                                        C27.5,26.5,26.5,27.5,25.3,27.5z M14.8,13.5c-0.7,0-1.3,0.6-1.3,1.3v10.5c0,0.7,0.6,1.3,1.3,1.3h10.5c0.7,0,1.3-0.6,1.3-1.3V14.8
+				                                        c0-0.7-0.6-1.3-1.3-1.3H14.8z"/>
+		                                        </g>
+	                                        </g>
+                                        </g>
+                                    </svg>
+                                    <input type="text" class="text-input" id="course-id" name="course-id" placeholder="1101" />
+                                </div>
                             </div>
-                            <div class="col-sm-6">
-                                <label for="course-id">Course ID</label>
-                                <svg version="1.1" class="svg-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	                                     viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
-                                    <g>
-	                                    <g>
-		                                    <g>
-			                                    <g>
-				                                    <path fill="#009FF5" d="M20,23.5c-0.3,0-0.5-0.2-0.5-0.5v-3c0-0.3,0.2-0.5,0.5-0.5s0.5,0.2,0.5,0.5v3
-					                                    C20.5,23.3,20.3,23.5,20,23.5z"/>
-			                                    </g>
-			                                    <g>
-				                                    <path fill="#009FF5" d="M20,17.5c-0.1,0-0.3-0.1-0.4-0.1c-0.1-0.1-0.1-0.2-0.1-0.4c0-0.1,0-0.3,0.1-0.4c0.2-0.2,0.5-0.2,0.7,0
-					                                    c0.1,0.1,0.2,0.2,0.2,0.4c0,0.1-0.1,0.3-0.1,0.3C20.3,17.4,20.1,17.5,20,17.5z"/>
-			                                    </g>
-		                                    </g>
-		                                    <g>
-			                                    <path fill="#009FF5" d="M25.3,27.5H14.8c-1.2,0-2.3-1-2.3-2.3V14.8c0-1.2,1-2.3,2.3-2.3h10.5c1.2,0,2.3,1,2.3,2.3v10.5
-				                                    C27.5,26.5,26.5,27.5,25.3,27.5z M14.8,13.5c-0.7,0-1.3,0.6-1.3,1.3v10.5c0,0.7,0.6,1.3,1.3,1.3h10.5c0.7,0,1.3-0.6,1.3-1.3V14.8
-				                                    c0-0.7-0.6-1.3-1.3-1.3H14.8z"/>
-		                                    </g>
-	                                    </g>
-                                    </g>
-                                </svg>
-                                <input type="text" class="text-input" id="course-id" name="course-id" placeholder="1101" />
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <label for="course-title">Title</label>
+                                    <input type="text" class="text-input" id="course-title" name="course-title" placeholder="English 101" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-sm-12">
-                                <label for="course-title">Title</label>
-                                <input type="text" class="text-input" id="course-title" name="course-title" placeholder="English 101" />
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <label for="course-subject">Subject</label>
+                                    <input type="text" class="text-input" id="course-subject" name="course-subject" placeholder="English" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-sm-12">
-                                <label for="course-subject">Subject</label>
-                                <input type="text" class="text-input" id="course-subject" name="course-subject" placeholder="English" />
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-sm-6">
-                                <label for="course-credit">Credit</label>
-                                <input type="text" class="text-input" id="course-credit" name="course-credit" placeholder="3" />
-                            </div>
-                            <div class="col-sm-6">
-                                <label>Term</label>
-                                <div class="dropdown">
-                                    <button class="btn learnbook-btn form-dropdown-btn dropdown-toggle" type="button" id="term-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Term
-                                    </button>
-                                    <div class="dropdown-menu animated-dropdown learnbook-dropdown-menu" aria-labelledby="term-dropdown">
-                                        <ul class="dropdown-list">
-                                            <li class="dropdown-list-item">Fall 2016</li>
-                                            <li class="dropdown-list-item">Spring 2017</li>
-                                        </ul>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label for="course-credit">Credit</label>
+                                    <input type="text" class="text-input" id="course-credit" name="course-credit" placeholder="3" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Term</label>
+                                    <div class="dropdown">
+                                        <button class="btn learnbook-btn form-dropdown-btn dropdown-toggle" type="button" id="term-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Term
+                                        </button>
+                                        <div class="dropdown-menu animated-dropdown learnbook-dropdown-menu" aria-labelledby="term-dropdown">
+                                            <ul class="dropdown-list">
+                                                <li class="dropdown-list-item">Fall 2016</li>
+                                                <li class="dropdown-list-item">Spring 2017</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="validate-form-section">
-
+                        <div class="form-section validate-form-section" [ngClass]="{'active': activeFormSection == 1}">
+                            Results
+                        </div>
                     </div>
                     <div class="form-control-actions">
-                        <button type="button" class="btn learnbook-btn learnbook-btn-primary float-right">Next</button>
+                        <button type="button" class="btn learnbook-btn learnbook-btn-default float-left" [hidden]="activeFormSection != 1" (click)="prevSection()">Back</button>
+                        <button type="button" class="btn learnbook-btn learnbook-btn-primary float-right" (click)="nextSection()">Next</button>
                     </div>
                 </form>
             </div>

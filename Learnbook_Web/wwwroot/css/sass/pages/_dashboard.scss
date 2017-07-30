@@ -538,6 +538,35 @@
 }
 
 #add-course-form {
+    .form-section-container {
+        position: relative;
+        width: 22.43rem;
+        height: 356.2px;
+
+        .form-section {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 22.43rem;
+            height: 356.2px;
+            opacity: 0;
+            visibility: hidden;
+            @include transition(all 300ms ease-out);
+            @include transform(translate(-115%, 0));
+
+            &:nth-of-type(2) {
+                @include transform(translate(115%, 0));
+            }
+
+            &.active {
+                @include transform(translate(0,0));
+                z-index: 10;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
     .learnbook-dropdown-menu {
         width: auto;
         margin: 0;

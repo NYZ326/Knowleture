@@ -852,6 +852,39 @@ input[type=text] + label:after, input[type=password] + label:after, input[type=e
     top: 1rem;
     left: -0.5rem; }
 
+#add-course-form .form-section-container {
+  position: relative;
+  width: 22.43rem;
+  height: 356.2px; }
+  #add-course-form .form-section-container .form-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 22.43rem;
+    height: 356.2px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 300ms ease-out;
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    transform: translate(-115%, 0);
+    -webkit-transform: translate(-115%, 0);
+    -moz-transform: translate(-115%, 0);
+    -ms-transform: translate(-115%, 0); }
+    #add-course-form .form-section-container .form-section:nth-of-type(2) {
+      transform: translate(115%, 0);
+      -webkit-transform: translate(115%, 0);
+      -moz-transform: translate(115%, 0);
+      -ms-transform: translate(115%, 0); }
+    #add-course-form .form-section-container .form-section.active {
+      transform: translate(0, 0);
+      -webkit-transform: translate(0, 0);
+      -moz-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+      z-index: 10;
+      opacity: 1;
+      visibility: visible; }
+
 #add-course-form .learnbook-dropdown-menu {
   width: auto;
   margin: 0;
@@ -1761,7 +1794,8 @@ input[type=text] + label:after, input[type=password] + label:after, input[type=e
   height: 85vh; }
 
 .modal .modal-content {
-  box-shadow: none; }
+  box-shadow: none;
+  overflow: hidden; }
 
 .modal .modal-header {
   border: none;
