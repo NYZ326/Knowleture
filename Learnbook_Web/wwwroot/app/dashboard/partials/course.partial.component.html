@@ -473,7 +473,8 @@
                                 <div class="col-sm-6">
                                     <label for="course-code">Course Code</label>
                                     <svg version="1.1" class="svg-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	                                         viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+	                                     viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve" 
+                                         ngbPopover="Course code is provided by the head of your department. If it does not exist, please contact your system administrator to create a new code." placement="top" container="body" triggers="mouseenter:mouseleave">
                                         <g>
 	                                        <g>
 		                                        <g>
@@ -494,12 +495,13 @@
 	                                        </g>
                                         </g>
                                     </svg>
-                                    <input type="text" class="text-input" id="course-code" name="course-code" placeholder="ENGL" />
+                                    <input type="text" class="text-input" id="course-code" name="course-code" placeholder="ENGL" [(ngModel)]="courseObject.code" (ngModelChange)="log()"/>
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="course-id">Course ID</label>
                                     <svg version="1.1" class="svg-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	                                         viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+	                                     viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve"
+                                         ngbPopover="Course ID can be generated in any numeric form. However, it must be at least 4 digits." placement="top" container="body" triggers="mouseenter:mouseleave">
                                         <g>
 	                                        <g>
 		                                        <g>

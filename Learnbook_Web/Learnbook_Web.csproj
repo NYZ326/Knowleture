@@ -16,13 +16,13 @@
     <Content Include="wwwroot\app\dashboard\dashboard.component.html" />
     <Content Include="wwwroot\app\dashboard\partials\assignment.partial.component.html" />
     <Content Include="wwwroot\app\dashboard\partials\course.partial.component.html" />
-    <Content Include="wwwroot\css\sass\components\site\_cards.scss" />
     <Content Include="wwwroot\css\sass\components\site\_nav.scss" />
     <Content Include="wwwroot\css\sass\components\ui\_buttons.scss" />
     <Content Include="wwwroot\css\sass\components\ui\_common.scss" />
     <Content Include="wwwroot\css\sass\components\ui\_dropdowns.scss" />
     <Content Include="wwwroot\css\sass\components\ui\_form.scss" />
     <Content Include="wwwroot\css\sass\components\ui\_modal.scss" />
+    <Content Include="wwwroot\css\sass\components\ui\_popovers.scss" />
     <Content Include="wwwroot\css\sass\pages\_contact.scss" />
     <Content Include="wwwroot\css\sass\pages\_course.scss" />
     <Content Include="wwwroot\css\sass\pages\_dashboard.scss" />

@@ -12,20 +12,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
 let NavigationComponent = class NavigationComponent {
     constructor() {
-        this.data = {};
     }
     ngOnInit() {
         console.log('NavigationComponent -> ngOnInit');
     }
 };
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], NavigationComponent.prototype, "data", void 0);
 NavigationComponent = __decorate([
     core_1.Component({
         selector: 'navigation',
-        templateUrl: './app/navigation/navigation.component.html'
+        templateUrl: './App/navigation/navigation.component.html'
     }),
     __metadata("design:paramtypes", [])
 ], NavigationComponent);

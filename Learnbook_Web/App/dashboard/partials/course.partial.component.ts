@@ -1,7 +1,7 @@
 ﻿import { Component, Input } from '@angular/core';
-//import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { UserSpecs } from './../../common/models/userSpecs';
+import { Course } from './../../common/models/course.d';
 
 @Component({
     selector: 'course-view',
@@ -17,6 +17,7 @@ export class CourseViewComponent{
     activeGrid: string = 'card';
     selectedCourses: string = 'All';
     activeFormSection: number = 0;
+    courseObject: Course = new Course();
 
     // Constructor
     constructor() {
@@ -38,10 +39,14 @@ export class CourseViewComponent{
     }
 
     prevSection() {
-        this.activeFormSection = 0;
+        this.activeFormSection--;
     }
 
     nextSection() {
-        this.activeFormSection = 1;
+        this.activeFormSection++;
+    }
+
+    log() {
+        console.log(this.courseObject);
     }
 }
