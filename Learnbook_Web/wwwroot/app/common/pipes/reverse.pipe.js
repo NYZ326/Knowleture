@@ -7,22 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
-let FilterCoursePipe = class FilterCoursePipe {
-    transform(items, term) {
-        if (items != undefined || items != null) {
-            if (term == 'All') {
-                return items;
-            }
-            else {
-                return items.filter(item => item.Course.FullTerm === term);
-            }
-        }
+let ReversePipe = class ReversePipe {
+    transform(values) {
+        return values.reverse();
     }
 };
-FilterCoursePipe = __decorate([
+ReversePipe = __decorate([
     core_1.Pipe({
-        name: 'filterCourse'
+        name: 'reverse',
+        pure: false
     })
-], FilterCoursePipe);
-exports.FilterCoursePipe = FilterCoursePipe;
-//# sourceMappingURL=course.filter.js.map
+], ReversePipe);
+exports.ReversePipe = ReversePipe;
+//# sourceMappingURL=reverse.pipe.js.map

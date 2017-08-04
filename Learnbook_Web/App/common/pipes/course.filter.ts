@@ -3,7 +3,7 @@
 @Pipe({
     name: 'filterCourse'
 })
-export class filterCoursePipe implements PipeTransform {
+export class FilterCoursePipe implements PipeTransform {
     transform(items: Array<any>, term: string): Array<any> {
         if (items != undefined || items != null) {
             if (term == 'All') {

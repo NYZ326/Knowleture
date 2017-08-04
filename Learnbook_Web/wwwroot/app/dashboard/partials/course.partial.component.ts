@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 import { UserSpecs } from './../../common/models/userSpecs';
-import { Course } from './../../common/models/course.d';
+import { Course } from './../../common/models/course';
 
 @Component({
     selector: 'course-view',

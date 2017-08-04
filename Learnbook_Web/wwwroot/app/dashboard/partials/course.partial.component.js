@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
-const course_d_1 = require("./../../common/models/course.d");
+const course_1 = require("./../../common/models/course");
 let CourseViewComponent = class CourseViewComponent {
     // Constructor
     constructor() {
@@ -20,7 +20,7 @@ let CourseViewComponent = class CourseViewComponent {
         this.activeGrid = 'card';
         this.selectedCourses = 'All';
         this.activeFormSection = 0;
-        this.courseObject = new course_d_1.Course();
+        this.courseObject = new course_1.Course();
     }
     // Functions
     switchGridView(view) {

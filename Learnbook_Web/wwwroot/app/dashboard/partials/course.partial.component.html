@@ -522,25 +522,25 @@
 	                                        </g>
                                         </g>
                                     </svg>
-                                    <input type="text" class="text-input" id="course-id" name="course-id" placeholder="1101" />
+                                    <input type="text" class="text-input" id="course-id" name="course-id" placeholder="1101" [(ngModel)]="courseObject.courseId" (ngModelChange)="log()" />
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <label for="course-title">Title</label>
-                                    <input type="text" class="text-input" id="course-title" name="course-title" placeholder="English 101" />
+                                    <input type="text" class="text-input" id="course-title" name="course-title" placeholder="English 101" [(ngModel)]="courseObject.title" (ngModelChange)="log()" />
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <label for="course-subject">Subject</label>
-                                    <input type="text" class="text-input" id="course-subject" name="course-subject" placeholder="English" />
+                                    <input type="text" class="text-input" id="course-subject" name="course-subject" placeholder="English" [(ngModel)]="courseObject.subject" (ngModelChange)="log()" />
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6">
                                     <label for="course-credit">Credit</label>
-                                    <input type="text" class="text-input" id="course-credit" name="course-credit" placeholder="3" />
+                                    <input type="text" class="text-input" id="course-credit" name="course-credit" placeholder="3" [(ngModel)]="courseObject.credit" (ngModelChange)="log()" />
                                 </div>
                                 <div class="col-sm-6">
                                     <label>Term</label>
@@ -550,8 +550,9 @@
                                         </button>
                                         <div class="dropdown-menu animated-dropdown learnbook-dropdown-menu" aria-labelledby="term-dropdown">
                                             <ul class="dropdown-list">
-                                                <li class="dropdown-list-item">Fall 2016</li>
-                                                <li class="dropdown-list-item">Spring 2017</li>
+                                                <li class="dropdown-list-item" *ngFor="let c of courses | reverse">
+                                                    {{c.Course.FullTerm}}
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
