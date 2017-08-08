@@ -10,19 +10,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
+const ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
 const course_1 = require("./../../common/models/course");
 let CourseViewComponent = class CourseViewComponent {
     // Constructor
-    constructor() {
+    constructor(ngbModal) {
+        this.ngbModal = ngbModal;
         // Attribute Variables
         this.courses = [];
         // Variables
         this.activeGrid = 'card';
         this.selectedCourses = 'All';
+        this.selectedTerm = 'Select';
         this.activeFormSection = 0;
         this.courseObject = new course_1.Course();
     }
     // Functions
+    open(content, config) {
+        let modal = this.ngbModal.open(content, { windowClass: 'add-course-modal learnbook-modal learnbook-modal-long' });
+        let instance = modal._windowCmptRef.instance;
+        setImmediate(() => {
+            instance.windowClass += ' modal-show';
+        });
+        let fx = modal._removeModalElements.bind(modal);
+        modal._removeModalElements = () => {
+            instance.windowClass = instance.windowClass.replace('modal-show', '');
+            setTimeout(fx, 300);
+        };
+        modal.result.then((result) => {
+            this.selectedTerm = 'Select';
+            this.activeFormSection = 0;
+        }, (reason) => {
+            this.selectedTerm = 'Select';
+            this.activeFormSection = 0;
+        });
+        return modal;
+    }
     switchGridView(view) {
         this.activeGrid = view;
     }
@@ -33,6 +56,13 @@ let CourseViewComponent = class CourseViewComponent {
         else {
             this.selectedCourses = filter;
         }
+    }
+    selectTerm(term) {
+        this.selectedTerm = term;
+        const termResults = term.split(' ');
+        this.courseObject.term = termResults[0];
+        this.courseObject.year = parseInt(termResults[1], 10);
+        this.log();
     }
     prevSection() {
         this.activeFormSection--;
@@ -53,7 +83,8 @@ CourseViewComponent = __decorate([
         selector: 'course-view',
         templateUrl: './app/dashboard/partials/course.partial.component.html'
     }),
-    __metadata("design:paramtypes", [])
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [ng_bootstrap_1.NgbModal])
 ], CourseViewComponent);
 exports.CourseViewComponent = CourseViewComponent;
 //# sourceMappingURL=course.partial.component.js.map

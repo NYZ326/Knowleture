@@ -21,12 +21,14 @@ let DashboardComponent = class DashboardComponent {
         this.config = learnbook_config_1.LearnbookConfig;
         this.activeId = 0;
         this.activeNavType = 'Courses';
+        this.dashboardLoading = false;
         // Data Variables
         this.courseData = [];
         this.assignmentData = [];
     }
     // Initialization
     ngOnInit() {
+        this.dashboardLoading = true;
         this._apiService.getCourses(this.specs.userRole, this.specs.userName)
             .subscribe((data) => {
             this.courseData = data;
@@ -34,7 +36,7 @@ let DashboardComponent = class DashboardComponent {
                 this.assignmentData.push(data.Course.Assignments);
             }
             this.assignmentData = _.flatten(this.assignmentData);
-            console.log(this.courseData);
+            this.dashboardLoading = false;
             console.log(this.assignmentData);
         });
     }

@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="view-action-button">
-            <button class="btn learnbook-btn learnbook-btn-logo" data-toggle="modal" data-target="#add-course-modal">
+            <button class="btn learnbook-btn learnbook-btn-logo" (click)="open(addModal)">
                 <svg version="1.1" class="svg-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	                 viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
                     <g>
@@ -423,7 +423,7 @@
 </div>
 
 <!-- Add Course Modal -->
-<div class="modal learnbook-modal learnbook-modal-long fade" id="add-course-modal" tabindex="-1" role="dialog" aria-hidden="true">
+<ng-template #addModal let-c="close" let-d="dismiss">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -446,7 +446,7 @@
 	                    </g>
                     </g>
                 </svg>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
                     <svg version="1.1" class="svg-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	                     viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
                         <g>
@@ -546,11 +546,11 @@
                                     <label>Term</label>
                                     <div class="dropdown">
                                         <button class="btn learnbook-btn form-dropdown-btn dropdown-toggle" type="button" id="term-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Term
+                                            {{selectedTerm}}
                                         </button>
                                         <div class="dropdown-menu animated-dropdown learnbook-dropdown-menu" aria-labelledby="term-dropdown">
                                             <ul class="dropdown-list">
-                                                <li class="dropdown-list-item" *ngFor="let c of courses | reverse">
+                                                <li class="dropdown-list-item" *ngFor="let c of courses" (click)="selectTerm(c.Course.FullTerm)">
                                                     {{c.Course.FullTerm}}
                                                 </li>
                                             </ul>
@@ -571,4 +571,4 @@
             </div>
         </div>
     </div>
-</div>
+</ng-template>

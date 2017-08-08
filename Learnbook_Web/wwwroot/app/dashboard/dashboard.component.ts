@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
     config = LearnbookConfig;
     activeId = 0;
     activeNavType: string = 'Courses';
+    dashboardLoading: boolean = false;
 
     // Data Variables
     courseData: Array<any> = [];
@@ -31,6 +32,8 @@ export class DashboardComponent implements OnInit {
 
     // Initialization
     ngOnInit() {
+        this.dashboardLoading = true;
+
         this._apiService.getCourses(this.specs.userRole, this.specs.userName)
             .subscribe((data: any) => {
                 this.courseData = data;
@@ -39,8 +42,8 @@ export class DashboardComponent implements OnInit {
                     this.assignmentData.push(data.Course.Assignments);
                 }
                 this.assignmentData = _.flatten(this.assignmentData);
-                
-                console.log(this.courseData);
+
+                this.dashboardLoading = false;
                 console.log(this.assignmentData);
             });
     }

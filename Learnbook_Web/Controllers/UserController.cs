@@ -1,13 +1,15 @@
 using System;
 using System.Net;
 using System.Threading.Tasks;
+using System.Linq;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+
+using AutoMapper;
 
 using Learnbook_Data.Models;
-using Learnbook_Data.Data;
-using System.Net.Http;
+using Learnbook_Data.Repositories;
+using Learnbook_Web.Models;
 
 namespace Learnbook_Web.Controllers
 {
@@ -15,12 +17,14 @@ namespace Learnbook_Web.Controllers
     [Route("user")]
     public class UserController : BaseController
     {
-        private readonly LearnbookContext _context;
+        private UserRepository _userRepo { get; set; }
+        private readonly IMapper _mapper;
 
         #region Constructor
-        public UserController(LearnbookContext context)
+        public UserController(UserRepository userRepo, IMapper mapper)
         {
-            _context = context;
+            _userRepo = userRepo;
+            _mapper = mapper;
         }
         #endregion
 
@@ -30,14 +34,11 @@ namespace Learnbook_Web.Controllers
         /// </summary>
         /// <param name="id">ID of the user.</param>
         /// <returns>Returns object result of the user.</returns>
-        [HttpGet("{id:int}", Name = "GetUserById")]
-        public async Task<IActionResult> GetUserById(int id)
+        [HttpGet("{id:int}", Name = "GetUser")]
+        public async Task<IActionResult> GetUser(int id)
         {
             try {
-                var user = await _context.Users
-                                .Include(r => r.UserRoles)
-                                .ThenInclude(r => r.Role)
-                                .FirstOrDefaultAsync(u => u.UserId == id);
+                User user = await _userRepo.Get(id);
 
                 if (user == null)
                 {
@@ -45,7 +46,8 @@ namespace Learnbook_Web.Controllers
                     return Json(string.Format("User not found with id: {0}", id));
                 }
 
-                return new ObjectResult(user);
+                var userModel = _mapper.Map<User, UserDTO>(user);
+                return new ObjectResult(userModel);
             }
             catch (Exception ex)
             {
@@ -64,10 +66,7 @@ namespace Learnbook_Web.Controllers
         {
             try
             {
-                var user = await _context.Users
-                                .Include(r => r.UserRoles)
-                                .ThenInclude(r => r.Role)
-                                .FirstOrDefaultAsync(u => u.Username == name);
+                User user = await _userRepo.Get(name);
 
                 if (user == null)
                 {
@@ -75,7 +74,8 @@ namespace Learnbook_Web.Controllers
                     return Json(string.Format("User not found with name: {0}", name));
                 }
 
-                return new ObjectResult(user);
+                var userModel = _mapper.Map<User, UserDTO>(user);
+                return new ObjectResult(userModel);
             }
             catch (Exception ex)
             {
@@ -93,12 +93,9 @@ namespace Learnbook_Web.Controllers
         {
             try
             {
-                var allUsers = await _context.Users
-                                .Include(r => r.UserRoles)
-                                .ThenInclude(r => r.Role)
-                                .ToListAsync();
+                IEnumerable<User> allUsers = await _userRepo.GetAll();
 
-                if (allUsers.Count == 0)
+                if (allUsers.Count() == 0)
                 {
                     Response.StatusCode = (int)HttpStatusCode.NoContent;
                     return Json("There are no users in the database.");

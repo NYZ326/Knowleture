@@ -8,10 +8,12 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
+using AutoMapper;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
 using Learnbook_Web.Common;
+using Learnbook_Data.Repositories;
 
 namespace LearnbookApp_v2
 {
@@ -51,6 +53,9 @@ namespace LearnbookApp_v2
                         options.SerializerSettings.ContractResolver = new DefaultContractResolver();
                         options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                     });
+
+            services.AddSingleton<UserRepository, UserRepository>();
+            services.AddAutoMapper();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

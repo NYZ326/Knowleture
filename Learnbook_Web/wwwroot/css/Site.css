@@ -835,17 +835,17 @@ input[type=text] + label:after, input[type=password] + label:after, input[type=e
           .course-list .course-item .course-item-wrap.course-buttons .course-card-dropdown .logo-btn {
             background-color: #fff; }
 
-#add-course-modal .modal-content .modal-body h3 {
+.add-course-modal .modal-content .modal-body h3 {
   position: relative;
   top: -0.65rem;
   margin-bottom: 0; }
 
-#add-course-modal .modal-content .modal-body .form-group {
+.add-course-modal .modal-content .modal-body .form-group {
   margin-top: 0;
   margin-bottom: 0.5rem; }
-  #add-course-modal .modal-content .modal-body .form-group label {
+  .add-course-modal .modal-content .modal-body .form-group label {
     font-size: 0.9rem; }
-  #add-course-modal .modal-content .modal-body .form-group .svg-icon {
+  .add-course-modal .modal-content .modal-body .form-group .svg-icon {
     width: 40px;
     height: 40px;
     position: relative;
@@ -1519,6 +1519,8 @@ input[type=text] + label:after, input[type=password] + label:after, input[type=e
   top: 50%;
   left: 50%;
   margin: 0;
+  opacity: 0;
+  visibility: hidden;
   transform: translate(-50%, -100%);
   -webkit-transform: translate(-50%, -100%);
   -moz-transform: translate(-50%, -100%);
@@ -1535,12 +1537,14 @@ input[type=text] + label:after, input[type=password] + label:after, input[type=e
     -moz-transform: translate3d(0, -100px, 0);
     -ms-transform: translate3d(0, -100px, 0); }
 
-.learnbook-modal.show .modal-dialog {
+.learnbook-modal.modal-show .modal-dialog {
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%); }
-  .learnbook-modal.show .modal-dialog .modal-content .modal-header, .learnbook-modal.show .modal-dialog .modal-content .modal-body, .learnbook-modal.show .modal-dialog .modal-content .modal-footer {
+  -ms-transform: translate(-50%, -50%);
+  opacity: 1;
+  visibility: visible; }
+  .learnbook-modal.modal-show .modal-dialog .modal-content .modal-header, .learnbook-modal.modal-show .modal-dialog .modal-content .modal-body, .learnbook-modal.modal-show .modal-dialog .modal-content .modal-footer {
     transform: translate3d(0, 0, 0);
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0);
@@ -1554,9 +1558,6 @@ input[type=text] + label:after, input[type=password] + label:after, input[type=e
 .learnbook-modal .modal-content .modal-body h3 {
   font-size: 1.125em;
   text-align: center; }
-
-.learnbook-modal .modal-content .modal-body .form-group {
-  margin-top: 1rem; }
 
 .learnbook-modal-long .modal-dialog {
   width: 400px; }
@@ -1616,7 +1617,7 @@ input[type="text"].text-input {
   input[type="text"].text-input::-webkit-input-placeholder {
     color: #e6e6e6; }
   input[type="text"].text-input:focus {
-    border-color: #009FF5; }
+    border-color: #FEB548; }
 
 .form-dropdown-btn {
   width: 100%;

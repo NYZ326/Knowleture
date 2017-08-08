@@ -6,6 +6,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 
 using Learnbook_Data.Data;
+using Learnbook_Data.Interfaces;
+using Learnbook_Data.Repositories;
 
 namespace Learnbook_Data
 {
@@ -31,6 +33,8 @@ namespace Learnbook_Data
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddMvc();
+
+            services.AddSingleton<IUserRepository, UserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
