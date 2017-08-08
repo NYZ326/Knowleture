@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+
 using Learnbook_Data.Models;
 
 namespace Learnbook_Data.Interfaces

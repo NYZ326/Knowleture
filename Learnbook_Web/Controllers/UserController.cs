@@ -17,8 +17,10 @@ namespace Learnbook_Web.Controllers
     [Route("user")]
     public class UserController : BaseController
     {
+        #region Properties
         private UserRepository _userRepo { get; set; }
         private readonly IMapper _mapper;
+        #endregion
 
         #region Constructor
         public UserController(UserRepository userRepo, IMapper mapper)
@@ -33,7 +35,7 @@ namespace Learnbook_Web.Controllers
         /// Gets a single user by id.
         /// </summary>
         /// <param name="id">ID of the user.</param>
-        /// <returns>Returns object result of the user.</returns>
+        /// <returns>Returns json result of the user.</returns>
         [HttpGet("{id:int}", Name = "GetUser")]
         public async Task<IActionResult> GetUser(int id)
         {
@@ -60,7 +62,7 @@ namespace Learnbook_Web.Controllers
         /// Gets a single user by username.
         /// </summary>
         /// <param name="name">Username of the user.</param>
-        /// <returns>Returns object result of the user.</returns>
+        /// <returns>Returns json result of the user.</returns>
         [HttpGet("{name}", Name = "GetUserByName")]
         public async Task<IActionResult> GetUserByName(string name)
         {
@@ -87,7 +89,7 @@ namespace Learnbook_Web.Controllers
         /// <summary>
         /// Gets a list of all the users in the database.
         /// </summary>
-        /// <returns>Returns object result of a list of users.</returns>
+        /// <returns>Returns json result of a list of users.</returns>
         [HttpGet("all", Name = "GetAllUsers")]
         public async Task<IActionResult> GetAllUsers()
         {
@@ -101,7 +103,8 @@ namespace Learnbook_Web.Controllers
                     return Json("There are no users in the database.");
                 }
 
-                return new ObjectResult(allUsers);
+                var allUsersModel = _mapper.Map<IEnumerable<User>, IEnumerable<UserDTO>>(allUsers);
+                return new ObjectResult(allUsersModel);
             }
             catch (Exception ex)
             {
