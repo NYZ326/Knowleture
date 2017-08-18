@@ -55,6 +55,7 @@ namespace LearnbookApp_v2
                     });
 
             services.AddSingleton<UserRepository, UserRepository>();
+            services.AddSingleton<CourseRepository, CourseRepository>();
             services.AddAutoMapper();
         }
 

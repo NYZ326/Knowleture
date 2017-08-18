@@ -1,13 +1,16 @@
 using System;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
+using AutoMapper;
 
 using Learnbook_Data.Data;
-using Microsoft.EntityFrameworkCore;
+using Learnbook_Data.Repositories;
 using Learnbook_Data.Models;
+using Learnbook_Web.Models;
 
 namespace Learnbook_Web.Controllers
 {
@@ -15,12 +18,14 @@ namespace Learnbook_Web.Controllers
     [Route("assignment")]
     public class AssignmentController : BaseController
     {
-        private readonly LearnbookContext _context;
+        private CourseRepository _courseRepo { get; set; }
+        private readonly IMapper _mapper;
 
         #region Constructor
-        public AssignmentController(LearnbookContext context)
+        public AssignmentController(CourseRepository courseRepo, IMapper mapper)
         {
-            _context = context;
+            _courseRepo = courseRepo;
+            _mapper = mapper;
         }
         #endregion
 
@@ -30,22 +35,37 @@ namespace Learnbook_Web.Controllers
         /// </summary>
         /// <param name="id">ID of the course.</param>
         /// <returns>Returns a list of assignments.</returns>
-        [HttpGet("{id:int}", Name = "GetAllAssignmentsByCourse")]
-        public async Task<JsonResult> GetAllAssignmentsByCourse(int id)
+        [HttpGet("{id:int}", Name = "GetAssignmentsByCourse")]
+        public async Task<JsonResult> GetAssignmentsByCourse(int id)
         {
             try
             {
-                var courses = await _context.Courses
-                                            .Include(a => a.Assignments)
-                                            .FirstOrDefaultAsync(c => c.CourseId == id);
+                Course course = await _courseRepo.Get(id, c => c.Assignments);
 
-                if (courses == null)
+                if (course == null)
                 {
                     Response.StatusCode = (int)HttpStatusCode.NotFound;
                     return Json(string.Format("Assignments could not be found with course id: {0}", id));
                 }
 
-                return Json(courses.Assignments);
+                IEnumerable<Assignment> assignments = course.Assignments;
+
+                var assignmentModel = _mapper.Map<IEnumerable<Assignment>, IEnumerable<AssignmentDTO>>(assignments);
+                return Json(assignmentModel);
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Json(ex.ToString());
+            }
+        }
+
+        [HttpGet("{courseList}", Name = "GetAllAssignments")]
+        public async Task<JsonResult> GetAllAssignments(int[] courseList)
+        {
+            try
+            {
+
             }
             catch (Exception ex)
             {

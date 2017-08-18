@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
-const _ = require("lodash");
 const learnbook_config_1 = require("./../common/config/learnbook.config");
 const userSpecs_1 = require("./../common/models/userSpecs");
 const api_service_1 = require("./../common/services/api.service");
@@ -32,12 +31,7 @@ let DashboardComponent = class DashboardComponent {
         this._apiService.getCourses(this.specs.userRole, this.specs.userName)
             .subscribe((data) => {
             this.courseData = data;
-            for (let data of this.courseData) {
-                this.assignmentData.push(data.Course.Assignments);
-            }
-            this.assignmentData = _.flatten(this.assignmentData);
-            this.dashboardLoading = false;
-            console.log(this.assignmentData);
+            //this.dashboardLoading = false;
         });
     }
     // Functions

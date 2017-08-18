@@ -30,10 +30,16 @@ export class ApiService {
             .catch(this.handleError);
     }
 
+    getAssignments(courseList: number[]): Observable<any> {
+        return this._http.get(this.apiUrl + 'assignment/' + courseList)
+            .map((response: Response) => <any>response.json())
+            .catch(this.handleError);
+    } 
+
 
     // Functions
     private handleError(error: Response) {
-        console.error(error);
+        console.log(error);
         return Observable.throw(error.json().error || 'Server Error');
     }
 }

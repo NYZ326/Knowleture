@@ -38,13 +38,8 @@ export class DashboardComponent implements OnInit {
             .subscribe((data: any) => {
                 this.courseData = data;
 
-                for (let data of this.courseData) {
-                    this.assignmentData.push(data.Course.Assignments);
-                }
-                this.assignmentData = _.flatten(this.assignmentData);
 
-                this.dashboardLoading = false;
-                console.log(this.assignmentData);
+                //this.dashboardLoading = false;
             });
     }
 

@@ -8,88 +8,96 @@ using Microsoft.EntityFrameworkCore;
 
 using Learnbook_Data.Data;
 using Learnbook_Web.Common;
+using Learnbook_Data.Models;
 
 namespace Learnbook_Web.Controllers
 {
     // Global Controller for Properties & Methods
     public class BaseController : Controller
     {
-        #region Methods
-        public async Task<object[]> GetCourseInfo<T>(LearnbookContext context, string role, T type)
+        #region Global Methods
+        public async Task<IEnumerable<Course>> GetInstructorCourseInfo<T>(LearnbookContext context, T type)
         {
-            object[] data = null;
+            IEnumerable<Course> courseList = null;
             var value = type.GetType();
 
             if (value == null)
             {
-                return data = null;
+                return courseList = null;
             }
             
             if (value == typeof(string))
             {
                 string name = type.ToString();
 
-                switch (role.ToLowerInvariant())
-                {
-                    case Constants.Roles.Instructor:
-                        var instructorInfo = await context.Instructors
-                                                    .Include(c => c.CourseAssignments)
-                                                        .ThenInclude(co => co.Course)
-                                                    .Include(c => c.CourseAssignments)
-                                                        .ThenInclude(co => co.Course.Assignments)
-                                                    .Include(c => c.CourseAssignments)
-                                                        .ThenInclude(co => co.Course.Enrollments)
-                                                    .FirstOrDefaultAsync(u => u.Username == name);
+                var instructorInfo = await context.Instructors
+                                            .Include(c => c.CourseAssignments)
+                                                .ThenInclude(co => co.Course)
+                                                    .ThenInclude(e => e.Enrollments)
+                                            .FirstOrDefaultAsync(u => u.Username == name);
 
-                        data = instructorInfo.CourseAssignments.ToArray();
-                        break;
-                    case Constants.Roles.Student:
-                        var studentInfo = await context.Students
-                                                    .Include(e => e.Enrollments)
-                                                        .ThenInclude(c => c.Course)
-                                                            .ThenInclude(a => a.Assignments)
-                                                    .FirstOrDefaultAsync(u => u.Username == name);
-
-                        data = studentInfo.Enrollments.ToArray();
-                        break;
-                }
+                courseList = instructorInfo.CourseAssignments.Select(c => c.Course).ToArray();
             }
             else if (value == typeof(int))
             {
                 int id = Convert.ToInt32(type);
 
-                switch (role.ToLowerInvariant())
-                {
-                    case Constants.Roles.Instructor:
-                        var instructorInfo = await context.Instructors
-                                                    .Include(c => c.CourseAssignments)
-                                                        .ThenInclude(co => co.Course)
-                                                    .Include(c => c.CourseAssignments)
-                                                        .ThenInclude(co => co.Course.Assignments)
-                                                    .Include(c => c.CourseAssignments)
-                                                        .ThenInclude(co => co.Course.Enrollments)
-                                                    .FirstOrDefaultAsync(u => u.UserId == id);
+                var instructorInfo = await context.Instructors
+                                            .Include(c => c.CourseAssignments)
+                                                .ThenInclude(co => co.Course)
+                                                    .ThenInclude(e => e.Enrollments)
+                                            .FirstOrDefaultAsync(u => u.UserId == id);
 
-                        data = instructorInfo.CourseAssignments.ToArray();
-                        break;
-                    case Constants.Roles.Student:
-                        var studentInfo = await context.Students
-                                                    .Include(e => e.Enrollments)
-                                                        .ThenInclude(c => c.Course)
-                                                            .ThenInclude(a => a.Assignments)
-                                                    .FirstOrDefaultAsync(u => u.UserId == id);
-
-                        data = studentInfo.Enrollments.ToArray();
-                        break;
-                }
+                courseList = instructorInfo.CourseAssignments.Select(c => c.Course).ToArray();
             }
 
-            if (data == null || data.Count() == 0)
+            if (courseList == null || courseList.Count() == 0)
             {
-                return data = null;
+                return courseList = null;
             }
 
-            return data;
+            return courseList;
+        }
+
+        public async Task<IEnumerable<Enrollment>> GetStudentCourseInfo<T>(LearnbookContext context, T type)
+        {
+            IEnumerable<Enrollment> enrollmentList = null;
+            var value = type.GetType();
+
+            if (value == null)
+            {
+                return enrollmentList = null;
+            }
+
+            if (value == typeof(string))
+            {
+                string name = type.ToString();
+
+                var studentInfo = await context.Students
+                                            .Include(e => e.Enrollments)
+                                                .ThenInclude(c => c.Course)
+                                            .FirstOrDefaultAsync(u => u.Username == name);
+
+                enrollmentList = studentInfo.Enrollments.ToArray();
+            }
+            else if (value == typeof(int))
+            {
+                int id = Convert.ToInt32(type);
+
+                var studentInfo = await context.Students
+                                            .Include(e => e.Enrollments)
+                                                .ThenInclude(c => c.Course)
+                                            .FirstOrDefaultAsync(u => u.UserId == id);
+
+                enrollmentList = studentInfo.Enrollments.ToArray();
+            }
+
+            if (enrollmentList == null || enrollmentList.Count() == 0)
+            {
+                return enrollmentList = null;
+            }
+
+            return enrollmentList;
         }
         #endregion
     }

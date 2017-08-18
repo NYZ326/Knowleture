@@ -18,6 +18,12 @@ namespace Learnbook_Web.Common
             CreateMap<RoleDTO, Role>();
             CreateMap<UserRoles, UserRoleDTO>();
             CreateMap<UserRoleDTO, UserRoles>();
+            CreateMap<Course, CourseDTO>();
+            CreateMap<CourseDTO, Course>();
+            CreateMap<Enrollment, EnrollmentDTO>();
+            CreateMap<EnrollmentDTO, Enrollment>();
+            CreateMap<Assignment, AssignmentDTO>();
+            CreateMap<AssignmentDTO, Assignment>();
         }
     }
 }

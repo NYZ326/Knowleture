@@ -35,6 +35,7 @@ namespace Learnbook_Data
             services.AddMvc();
 
             services.AddSingleton<IUserRepository, UserRepository>();
+            services.AddSingleton<ICourseRepository, CourseRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

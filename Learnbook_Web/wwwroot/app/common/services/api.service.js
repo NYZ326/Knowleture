@@ -31,9 +31,14 @@ let ApiService = class ApiService {
             .map((response) => response.json())
             .catch(this.handleError);
     }
+    getAssignments(courseList) {
+        return this._http.get(this.apiUrl + 'assignment/' + courseList)
+            .map((response) => response.json())
+            .catch(this.handleError);
+    }
     // Functions
     handleError(error) {
-        console.error(error);
+        console.log(error);
         return Observable_1.Observable.throw(error.json().error || 'Server Error');
     }
 };
