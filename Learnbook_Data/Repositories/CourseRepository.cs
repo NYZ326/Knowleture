@@ -57,6 +57,19 @@ namespace Learnbook_Data.Repositories
                             .FirstOrDefaultAsync(c => c.Title == courseName);
         }
 
+        public async Task<IEnumerable<Course>> GetAll<T>(Expression<Func<Course, T>> query)
+        {
+            if (query != null)
+            {
+                return await _context.Courses
+                                .Include(query).ToArrayAsync();
+            }
+            else
+            {
+                return await _context.Courses.ToArrayAsync();
+            }
+        }
+
         /// <summary>
         /// Adds a new course to the database.
         /// </summary>

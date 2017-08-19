@@ -31,7 +31,11 @@ let DashboardComponent = class DashboardComponent {
         this._apiService.getCourses(this.specs.userRole, this.specs.userName)
             .subscribe((data) => {
             this.courseData = data;
-            //this.dashboardLoading = false;
+            this._apiService.getAssignments()
+                .subscribe((assignmentResponseData) => {
+                this.assignmentData = assignmentResponseData;
+            });
+            this.dashboardLoading = false;
         });
     }
     // Functions

@@ -31,8 +31,8 @@ let ApiService = class ApiService {
             .map((response) => response.json())
             .catch(this.handleError);
     }
-    getAssignments(courseList) {
-        return this._http.get(this.apiUrl + 'assignment/' + courseList)
+    getAssignments() {
+        return this._http.get(this.apiUrl + 'assignment/all')
             .map((response) => response.json())
             .catch(this.handleError);
     }

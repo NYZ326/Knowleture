@@ -1258,7 +1258,7 @@ input[type=text] + label:after, input[type=password] + label:after, input[type=e
   margin: 0;
   border-bottom: 1px solid #F4F4F4; }
   .app-top-nav .app-nav-container {
-    width: 95%;
+    width: 87.5%;
     margin: 0 auto; }
 
 .app-logo {
@@ -1301,7 +1301,7 @@ input[type=text] + label:after, input[type=password] + label:after, input[type=e
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%); }
   .app-search-bar .app-search {
-    width: 30rem;
+    width: 22.5rem;
     background-color: #F7F7F7;
     border-bottom: none;
     padding: 0 3.2rem 0 1.6rem;

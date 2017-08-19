@@ -38,8 +38,12 @@ export class DashboardComponent implements OnInit {
             .subscribe((data: any) => {
                 this.courseData = data;
 
+                this._apiService.getAssignments()
+                    .subscribe((assignmentResponseData: any) => {
+                        this.assignmentData = assignmentResponseData;
+                    });
 
-                //this.dashboardLoading = false;
+                this.dashboardLoading = false;
             });
     }
 

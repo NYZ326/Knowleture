@@ -38,10 +38,13 @@ namespace LearnbookApp_v2
             services.AddDbContext<Learnbook_Data.Data.LearnbookContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddAuthentication(options =>
-            {
-                options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            });
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options => {
+                    options.LoginPath = new PathString("/Login/Index/");
+                    options.LogoutPath = new PathString("/Login/Logout/");
+                    options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+                    options.SlidingExpiration = true;
+                });
 
             //services.AddRouting(routeOptions =>
             //{
@@ -54,8 +57,8 @@ namespace LearnbookApp_v2
                         options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                     });
 
-            services.AddSingleton<UserRepository, UserRepository>();
-            services.AddSingleton<CourseRepository, CourseRepository>();
+            services.AddTransient<UserRepository>();
+            services.AddTransient<CourseRepository>();
             services.AddAutoMapper();
         }
 
@@ -74,16 +77,7 @@ namespace LearnbookApp_v2
             app.UseMiddleware<ApiErrorMiddleware>();
             #endregion
 
-            app.UseCookieAuthentication(new CookieAuthenticationOptions
-            {
-                AuthenticationScheme = CookieAuthenticationDefaults.AuthenticationScheme,
-                AutomaticAuthenticate = true,
-                AutomaticChallenge = true,
-                ExpireTimeSpan = TimeSpan.FromMinutes(30),
-                SlidingExpiration = true,
-
-                LoginPath = new PathString("/Login/Index/")
-            });
+            app.UseAuthentication();
 
             app.UseCors(
                 builder => builder.AllowAnyOrigin()

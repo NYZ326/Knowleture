@@ -60,12 +60,31 @@ namespace Learnbook_Web.Controllers
             }
         }
 
-        [HttpGet("{courseList}", Name = "GetAllAssignments")]
+        [HttpGet("all", Name = "GetAllAssignments")]
         public async Task<JsonResult> GetAllAssignments(int[] courseList)
         {
             try
             {
+                IEnumerable<Course> courses = await _courseRepo.GetAll(c => c.Assignments);
 
+                if (courses == null)
+                {
+                    Response.StatusCode = (int)HttpStatusCode.NotFound;
+                    return Json("There are no courses in the database.");
+                }
+
+                List<Assignment> assignments = new List<Assignment>();
+
+                foreach (Course course in courses)
+                {
+                    foreach (Assignment assignment in course.Assignments)
+                    {
+                        assignments.Add(assignment);
+                    }
+                }
+
+                var assignmentModel = _mapper.Map<IEnumerable<Assignment>, IEnumerable<AssignmentDTO>>(assignments);
+                return Json(assignmentModel);
             }
             catch (Exception ex)
             {

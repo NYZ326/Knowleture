@@ -7,8 +7,8 @@
             <div class="dropdown-menu animated-dropdown filter-course-dropdown-menu" aria-labelledby="filterCourse">
                 <ul class="dropdown-list course-filter-list">
                     <li class="dropdown-list-item" (click)="filterCourse()" [ngClass]="{'active': selectedCourses == 'All'}">All</li>
-                    <li class="dropdown-list-item" *ngFor="let c of courses" (click)="filterCourse(c.Course.FullTerm)" [ngClass]="{'active': selectedCourses == c.Course.FullTerm}">
-                        {{c.Course.FullTerm}}
+                    <li class="dropdown-list-item" *ngFor="let c of courses" (click)="filterCourse(c.FullTerm)" [ngClass]="{'active': selectedCourses == c.FullTerm}">
+                        {{c.FullTerm}}
                     </li>
                 </ul>
             </div>
@@ -242,17 +242,17 @@
                     </div>
                     <div class="bottom-half-card">
                         <div class="course-title-content">
-                            <span class="course-code">{{c.Course.Code + ' ' + c.Course.CourseId}}</span>
-                            <h3>{{c.Course.Title}}</h3>
+                            <span class="course-code">{{c.Code + ' ' + c.CourseId}}</span>
+                            <h3>{{c.Title}}</h3>
                         </div>
                         <div class="course-stat-content">
                             <div class="stat-content course-student">
                                 <h3>Students Enrolled</h3>
-                                <span class="student-number">{{c.Course.Enrollments.length}}</span>
+                                <span class="student-number">{{c.Enrollments.length}}</span>
                             </div>
                             <div class="stat-content course-term">
                                 <h3>Term</h3>
-                                <span class="term-text">{{c.Course.FullTerm}}</span>
+                                <span class="term-text">{{c.FullTerm}}</span>
                             </div>
                         </div>
                     </div>
@@ -330,18 +330,18 @@
                             </svg>
                         </span>
                         <div class="course-title-content">
-                            <span class="course-code">{{c.Course.Code + ' ' + c.Course.CourseId}}</span>
-                            <h3>{{c.Course.Title}}</h3>
+                            <span class="course-code">{{c.Code + ' ' + c.CourseId}}</span>
+                            <h3>{{c.Title}}</h3>
                         </div>
                     </div>
                     <div class="course-item-wrap course-subject">
-                        <span>{{c.Course.Subject}}</span>
+                        <span>{{c.Subject}}</span>
                     </div>
                     <div class="course-item-wrap course-term">
-                        <span>{{c.Course.FullTerm}}</span>
+                        <span>{{c.FullTerm}}</span>
                     </div>
                     <div class="course-item-wrap course-student">
-                        <span>{{c.Course.Enrollments.length}}</span>
+                        <span>{{c.Enrollments.length}}</span>
                     </div>
                     <div class="course-item-wrap course-buttons">
                         <div ngbDropdown class="course-card-dropdown">

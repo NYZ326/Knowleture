@@ -30,8 +30,8 @@ export class ApiService {
             .catch(this.handleError);
     }
 
-    getAssignments(courseList: number[]): Observable<any> {
-        return this._http.get(this.apiUrl + 'assignment/' + courseList)
+    getAssignments(): Observable<any> {
+        return this._http.get(this.apiUrl + 'assignment/all')
             .map((response: Response) => <any>response.json())
             .catch(this.handleError);
     } 

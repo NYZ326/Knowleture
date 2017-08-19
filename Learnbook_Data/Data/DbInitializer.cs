@@ -164,6 +164,54 @@ namespace Learnbook_Data.Data
                     Credit = 4,
                     DepartmentId = departments.Single(d => d.Name == "Computer Science").DepartmentId,
                     Instructors = new List<Instructor>()
+                },
+                new Course
+                {
+                    CourseId = 1310,
+                    Title = "Beginner's Javascript Programming",
+                    Subject = "Computer Science",
+                    Code = "CSCI",
+                    Term = "Spring",
+                    Year = 2017,
+                    Credit = 3,
+                    DepartmentId = departments.Single(d => d.Name == "Computer Science").DepartmentId,
+                    Instructors = new List<Instructor>()
+                },
+                new Course
+                {
+                    CourseId = 1311,
+                    Title = "Advanced Javascript Programming",
+                    Subject = "Computer Science",
+                    Code = "CSCI",
+                    Term = "Fall",
+                    Year = 2017,
+                    Credit = 4,
+                    DepartmentId = departments.Single(d => d.Name == "Computer Science").DepartmentId,
+                    Instructors = new List<Instructor>()
+                },
+                new Course
+                {
+                    CourseId = 1330,
+                    Title = "Internet Programming",
+                    Subject = "Computer Science",
+                    Code = "CSCI",
+                    Term = "Fall",
+                    Year = 2017,
+                    Credit = 4,
+                    DepartmentId = departments.Single(d => d.Name == "Computer Science").DepartmentId,
+                    Instructors = new List<Instructor>()
+                },
+                new Course
+                {
+                    CourseId = 1320,
+                    Title = "System Administration Course",
+                    Subject = "Computer Science",
+                    Code = "CSCI",
+                    Term = "Fall",
+                    Year = 2017,
+                    Credit = 4,
+                    DepartmentId = departments.Single(d => d.Name == "Computer Science").DepartmentId,
+                    Instructors = new List<Instructor>()
                 }
             };
 
@@ -302,6 +350,21 @@ namespace Learnbook_Data.Data
                 new CourseAssignment
                 {
                     CourseId = courses.Single(c => c.Title == "Computer Programming II").CourseId,
+                    UserId = instructors.Single(i => i.LastName == "York").UserId
+                },
+                new CourseAssignment
+                {
+                    CourseId = courses.Single(c => c.Title == "Beginner's Javascript Programming").CourseId,
+                    UserId = instructors.Single(i => i.LastName == "York").UserId
+                },
+                new CourseAssignment
+                {
+                    CourseId = courses.Single(c => c.Title == "Advanced Javascript Programming").CourseId,
+                    UserId = instructors.Single(i => i.LastName == "York").UserId
+                },
+                new CourseAssignment
+                {
+                    CourseId = courses.Single(c => c.Title == "Internet Programming").CourseId,
                     UserId = instructors.Single(i => i.LastName == "York").UserId
                 }
             };
