@@ -23,7 +23,9 @@ let CourseViewComponent = class CourseViewComponent {
         this.selectedCourses = 'All';
         this.selectedTerm = 'Select';
         this.activeFormSection = 0;
+        this.notEmpty = false;
         this.courseObject = new course_1.Course();
+        this.courseTerm = '';
     }
     // Functions
     open(content, config) {
@@ -69,6 +71,14 @@ let CourseViewComponent = class CourseViewComponent {
     }
     nextSection() {
         this.activeFormSection++;
+    }
+    checkInputValue() {
+        if (this.courseTerm != '') {
+            this.notEmpty = true;
+        }
+        else {
+            this.notEmpty = false;
+        }
     }
     log() {
         console.log(this.courseObject);

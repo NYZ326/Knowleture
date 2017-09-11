@@ -14,7 +14,7 @@ let FilterCoursePipe = class FilterCoursePipe {
                 return items;
             }
             else {
-                return items.filter(item => item.Course.FullTerm === term);
+                return items.filter(item => item.FullTerm === term);
             }
         }
     }

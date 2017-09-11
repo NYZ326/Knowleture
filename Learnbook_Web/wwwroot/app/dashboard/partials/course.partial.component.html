@@ -1,5 +1,23 @@
 ﻿<div id="course-dashboard-view" class="dashboard-view-container">
     <div class="view-actions course-actions">
+        <div class="view-action-search" [ngClass]="{'not-empty': notEmpty}">
+            <input type="search" class="view-search" [(ngModel)]="courseTerm" (ngModelChange)="checkInputValue()"/>
+            <span class="search-text-placeholder">Search Courses...</span>
+            <svg version="1.1" class="svg-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	             viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve" width="45px" height="45px">
+                <g>
+	                <g>
+		                <g>
+			                <path fill="#BDBDBD" d="M18.5,24c-3,0-5.5-2.5-5.5-5.5s2.5-5.5,5.5-5.5s5.5,2.5,5.5,5.5S21.5,24,18.5,24z M18.5,14
+				                C16,14,14,16,14,18.5s2,4.5,4.5,4.5s4.5-2,4.5-4.5S21,14,18.5,14z"/>
+		                </g>
+		                <g>
+			                <path fill="#BDBDBD" d="M22.5,21.8l4.4,4.4c0.2,0.2,0.2,0.5,0,0.7C26.8,27,26.6,27,26.5,27s-0.3,0-0.4-0.1l-4.4-4.4L22.5,21.8z" />
+		                </g>
+	                </g>
+                </g>
+            </svg>
+        </div>
         <div ngbDropdown class="view-action-dropdown filter-course-dropdown">
             <button class="btn learnbook-btn learnbook-btn-primary-outline" id="filterCourse" ngbDropdownToggle>
                 {{selectedCourses}}
@@ -14,7 +32,7 @@
             </div>
         </div>
         <div class="view-action-button">
-            <button class="btn learnbook-btn learnbook-btn-logo" (click)="open(addModal)">
+            <!--<button class="btn learnbook-btn learnbook-btn-logo" (click)="open(addModal)">
                 <svg version="1.1" class="svg-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	                 viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
                     <g>
@@ -35,7 +53,7 @@
                     </g>
                 </svg>
                 <span>New Course</span>
-            </button>
+            </button>-->
             <span class="dashboard-action-icon" [class.active]="activeGrid == 'card'" (click)="switchGridView('card')">
                 <svg version="1.1" class="svg-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	                    viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
@@ -123,7 +141,23 @@
         <ng-container *ngSwitchCase="'card'">
             <ul class="course-card-list">
                 <li class="course-card-item" *ngFor="let c of (courses | filterCourse:selectedCourses)">
-                    <div class="top-half-card">
+                    <div class="course-top-bar">
+                        <span class="term-text">{{c.FullTerm}}</span>
+                        <svg version="1.1" class="svg-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	                            viewBox="0 0 490 490" style="enable-background:new 0 0 490 490;" xml:space="preserve">
+                            <g>
+	                            <g>
+		                            <path fill="#fff" d="M245,185.5c-32.8,0-59.5,26.7-59.5,59.5s26.7,59.5,59.5,59.5s59.5-26.7,59.5-59.5S277.8,185.5,245,185.5z M280,245
+			                            c0,19.3-15.7,35-35,35s-35-15.7-35-35s15.7-35,35-35S280,225.7,280,245z"/>
+		                            <path fill="#fff" d="M185.5,430.5c0,32.8,26.7,59.5,59.5,59.5s59.5-26.7,59.5-59.5S277.8,371,245,371S185.5,397.7,185.5,430.5z M280,430.5
+			                            c0,19.3-15.7,35-35,35s-35-15.7-35-35s15.7-35,35-35S280,411.2,280,430.5z"/>
+		                            <path fill="#fff" d="M185.5,59.5c0,32.8,26.7,59.5,59.5,59.5s59.5-26.7,59.5-59.5S277.8,0,245,0S185.5,26.7,185.5,59.5z M280,59.5
+			                            c0,19.3-15.7,35-35,35s-35-15.7-35-35s15.7-35,35-35S280,40.2,280,59.5z"/>
+	                            </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="course-card-container">
                         <div class="course-icon">
                             <svg version="1.1" class="svg-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
@@ -132,22 +166,22 @@
                                         <g>
                                             <g>
                                                 <g>
-                                                    <path fill="#fff" d="M24.6,28.5h-8.2c-1.3,0-2.4-1.1-2.4-2.4V13.9c0-1.3,1.1-2.4,2.4-2.4h8.2c1.3,0,2.4,1.1,2.4,2.4v12.2
+                                                    <path fill="#009FF5" d="M24.6,28.5h-8.2c-1.3,0-2.4-1.1-2.4-2.4V13.9c0-1.3,1.1-2.4,2.4-2.4h8.2c1.3,0,2.4,1.1,2.4,2.4v12.2
                                                         C27,27.4,25.9,28.5,24.6,28.5z M16.4,12.5c-0.8,0-1.4,0.6-1.4,1.4v12.2c0,0.8,0.6,1.4,1.4,1.4h8.2c0.8,0,1.4-0.6,1.4-1.4V13.9
                                                         c0-0.8-0.6-1.4-1.4-1.4H16.4z"/>
                                                 </g>
                                                 <g>
                                                     <g>
-                                                        <path fill="#fff" d="M15.5,16.5h-2c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h2c0.3,0,0.5,0.2,0.5,0.5S15.8,16.5,15.5,16.5z"/>
+                                                        <path fill="#009FF5" d="M15.5,16.5h-2c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h2c0.3,0,0.5,0.2,0.5,0.5S15.8,16.5,15.5,16.5z"/>
                                                     </g>
                                                     <g>
-                                                        <path fill="#fff" d="M15.5,21.8h-2c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h2c0.3,0,0.5,0.2,0.5,0.5S15.8,21.8,15.5,21.8z"/>
+                                                        <path fill="#009FF5" d="M15.5,21.8h-2c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h2c0.3,0,0.5,0.2,0.5,0.5S15.8,21.8,15.5,21.8z"/>
                                                     </g>
                                                     <g>
-                                                        <path fill="#fff" d="M15.5,24.5h-2c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h2c0.3,0,0.5,0.2,0.5,0.5S15.8,24.5,15.5,24.5z"/>
+                                                        <path fill="#009FF5" d="M15.5,24.5h-2c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h2c0.3,0,0.5,0.2,0.5,0.5S15.8,24.5,15.5,24.5z"/>
                                                     </g>
                                                     <g>
-                                                        <path fill="#fff" d="M15.5,19.2h-2c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h2c0.3,0,0.5,0.2,0.5,0.5S15.8,19.2,15.5,19.2z"/>
+                                                        <path fill="#009FF5" d="M15.5,19.2h-2c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h2c0.3,0,0.5,0.2,0.5,0.5S15.8,19.2,15.5,19.2z"/>
                                                     </g>
                                                 </g>
                                             </g>
@@ -166,28 +200,16 @@
                                                 </g>
                                             </g>
                                             <g>
-                                                <rect x="16.4" y="12" fill="#fff" width="1" height="16"/>
+                                                <rect x="16.4" y="12" fill="#009FF5" width="1" height="16"/>
                                             </g>
                                         </g>
                                     </g>
                                 </g>
                             </svg>
                         </div>
-                        <div ngbDropdown class="course-card-dropdown">
+                        <!--<div ngbDropdown class="course-card-dropdown">
                             <button class="logo-btn" id="messages" ngbDropdownToggle>
-                                <svg version="1.1" class="svg-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	                                 viewBox="0 0 490 490" style="enable-background:new 0 0 490 490;" xml:space="preserve">
-                                    <g>
-	                                    <g>
-		                                    <path fill="#fff" d="M245,185.5c-32.8,0-59.5,26.7-59.5,59.5s26.7,59.5,59.5,59.5s59.5-26.7,59.5-59.5S277.8,185.5,245,185.5z M280,245
-			                                    c0,19.3-15.7,35-35,35s-35-15.7-35-35s15.7-35,35-35S280,225.7,280,245z"/>
-		                                    <path fill="#fff" d="M185.5,430.5c0,32.8,26.7,59.5,59.5,59.5s59.5-26.7,59.5-59.5S277.8,371,245,371S185.5,397.7,185.5,430.5z M280,430.5
-			                                    c0,19.3-15.7,35-35,35s-35-15.7-35-35s15.7-35,35-35S280,411.2,280,430.5z"/>
-		                                    <path fill="#fff" d="M185.5,59.5c0,32.8,26.7,59.5,59.5,59.5s59.5-26.7,59.5-59.5S277.8,0,245,0S185.5,26.7,185.5,59.5z M280,59.5
-			                                    c0,19.3-15.7,35-35,35s-35-15.7-35-35s15.7-35,35-35S280,40.2,280,59.5z"/>
-	                                    </g>
-                                    </g>
-                                </svg>
+                                
                             </button>
                             <div class="dropdown-menu dropdown-menu-right animated-dropdown learnbook-dropdown-menu" aria-labelledby="messages">
                                 <ul class="dropdown-list with-links course-card-dropdown-list">
@@ -238,21 +260,18 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
-                    </div>
-                    <div class="bottom-half-card">
+                        </div>-->
                         <div class="course-title-content">
-                            <span class="course-code">{{c.Code + ' ' + c.CourseId}}</span>
                             <h3>{{c.Title}}</h3>
+                            <span class="course-code">{{c.Code + ' ' + c.CourseId}}</span>
                         </div>
                         <div class="course-stat-content">
                             <div class="stat-content course-student">
-                                <h3>Students Enrolled</h3>
-                                <span class="student-number">{{c.Enrollments.length}}</span>
-                            </div>
-                            <div class="stat-content course-term">
-                                <h3>Term</h3>
-                                <span class="term-text">{{c.FullTerm}}</span>
+                                <span class="student-number">
+                                    {{c.Enrollments.length}}
+                                    <span *ngIf="c.Enrollments.length > 1">Students</span>
+                                    <span *ngIf="c.Enrollments.length <= 1">Student</span>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -261,7 +280,7 @@
         </ng-container>
         <ng-container *ngSwitchCase="'table'">
             <ul class="course-list">
-                <li class="course-item course-item-legend">
+                <!--<li class="course-item course-item-legend">
                     <div class="course-legend-title">
                         Course
                     </div>
@@ -277,7 +296,7 @@
                     <div class="course-legend-title">
                         Actions
                     </div>
-                </li>
+                </li>-->
                 <li class="course-item course-item-content" *ngFor="let c of (courses | filterCourse:selectedCourses)">
                     <div class="course-item-wrap course-title">
                         <span class="course-icon">
@@ -341,7 +360,11 @@
                         <span>{{c.FullTerm}}</span>
                     </div>
                     <div class="course-item-wrap course-student">
-                        <span>{{c.Enrollments.length}}</span>
+                        <span>
+                            {{c.Enrollments.length}}
+                            <span *ngIf="c.Enrollments.length > 1">Students</span>
+                            <span *ngIf="c.Enrollments.length <= 1">Student</span>
+                        </span>
                     </div>
                     <div class="course-item-wrap course-buttons">
                         <div ngbDropdown class="course-card-dropdown">
@@ -550,8 +573,8 @@
                                         </button>
                                         <div class="dropdown-menu animated-dropdown learnbook-dropdown-menu" aria-labelledby="term-dropdown">
                                             <ul class="dropdown-list">
-                                                <li class="dropdown-list-item" *ngFor="let c of courses" (click)="selectTerm(c.Course.FullTerm)">
-                                                    {{c.Course.FullTerm}}
+                                                <li class="dropdown-list-item" *ngFor="let c of courses" (click)="selectTerm(c.FullTerm)">
+                                                    {{c.FullTerm}}
                                                 </li>
                                             </ul>
                                         </div>

@@ -337,6 +337,25 @@ input:not([type]):disabled, input:not([type])[readonly="readonly"], input[type=t
 	}
 }
 
+
+@keyframes line-animation {
+    50% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+    51% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
 @media only screen and (min-width: 1200px) {
     html {
         font-size: 15px;

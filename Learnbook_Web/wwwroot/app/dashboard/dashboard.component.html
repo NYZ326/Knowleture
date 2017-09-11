@@ -1,16 +1,37 @@
 ﻿<div class="learnbook-dashboard-container">
-    <div class="learnbook-dashboard-nav">
+    <div class="learnbook-dashboard-nav" *ngIf="!dashboardLoading">
         <ul class="dashboard-nav-list" *ngFor="let u of config.users">
             <ng-container *ngIf="u.user == specs.userRole">
-                <li class="dashboard-nav-item" 
-                    *ngFor="let nav of u.nav; let i = index" 
+                <li class="dashboard-nav-item"
+                    *ngFor="let nav of u.nav; let i = index"
                     (click)="selectNav(i, nav.name)"
                     [class.active]="activeId == i">
-                    {{nav.name}}
+                    <span class="nav-helper">{{nav.name}}</span>
                 </li>
-                <li class="nav-list-line"></li>
             </ng-container>
         </ul>
+        <button class="btn learnbook-btn learnbook-btn-logo">
+            <svg version="1.1" class="svg-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	                viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+                <g>
+	                <g>
+		                <g>
+			                <path fill="#fff" d="M20,28.5c-4.7,0-8.5-3.8-8.5-8.5s3.8-8.5,8.5-8.5s8.5,3.8,8.5,8.5S24.7,28.5,20,28.5z M20,12.5
+				                c-4.1,0-7.5,3.4-7.5,7.5s3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5S24.1,12.5,20,12.5z"/>
+		                </g>
+		                <g>
+			                <g>
+				                <path fill="#fff" d="M22.5,20.5h-5c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h5c0.3,0,0.5,0.2,0.5,0.5S22.8,20.5,22.5,20.5z"/>
+			                </g>
+			                <g>
+				                <path fill="#fff" d="M20,23c-0.3,0-0.5-0.2-0.5-0.5v-5c0-0.3,0.2-0.5,0.5-0.5s0.5,0.2,0.5,0.5v5C20.5,22.8,20.3,23,20,23z"/>
+			                </g>
+		                </g>
+	                </g>
+                </g>
+            </svg>
+            <span>New</span>
+        </button>
     </div>
     <div class="learnbook-dashboard-content">
         <div class="dashboard-content-container" *ngIf="!dashboardLoading">

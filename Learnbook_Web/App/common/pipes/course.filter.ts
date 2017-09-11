@@ -10,7 +10,7 @@ export class FilterCoursePipe implements PipeTransform {
                 return items;
             }
             else {
-                return items.filter(item => item.Course.FullTerm === term);
+                return items.filter(item => item.FullTerm === term);
             }
         }
     }

@@ -20,12 +20,12 @@ let AssignmentViewComponent = class AssignmentViewComponent {
         this.selectedCourseAssignments = 'All';
     }
     // Functions
-    filterCourseAssignments(filter) {
-        if (filter == null || filter == undefined) {
+    filterCourseAssignments(course) {
+        if (course == null || course == undefined) {
             this.selectedCourseAssignments = 'All';
         }
         else {
-            this.selectedCourseAssignments = filter;
+            this.selectedCourseAssignments = course.Code + ' ' + course.CourseId;
         }
     }
 };

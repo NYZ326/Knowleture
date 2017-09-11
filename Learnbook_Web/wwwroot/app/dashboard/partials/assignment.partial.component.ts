@@ -24,12 +24,12 @@ export class AssignmentViewComponent{
 
 
     // Functions
-    filterCourseAssignments(filter: string) {
-        if (filter == null || filter == undefined) {
+    filterCourseAssignments(course: any) {
+        if (course == null || course == undefined) {
             this.selectedCourseAssignments = 'All';
         }
         else {
-            this.selectedCourseAssignments = filter;
+            this.selectedCourseAssignments = course.Code + ' ' + course.CourseId;
         }
     }
 }

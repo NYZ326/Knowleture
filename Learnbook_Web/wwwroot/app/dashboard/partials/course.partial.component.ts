@@ -21,7 +21,10 @@ export class CourseViewComponent {
     selectedCourses: string = 'All';
     selectedTerm: string = 'Select';
     activeFormSection: number = 0;
+    notEmpty: boolean = false;
+
     courseObject: Course = new Course();
+    courseTerm: string = '';
 
     // Constructor
     constructor(private ngbModal: NgbModal) {
@@ -58,6 +61,7 @@ export class CourseViewComponent {
         this.activeGrid = view;
     }
 
+
     filterCourse(filter: string) {
         if (filter == null || filter == undefined) {
             this.selectedCourses = 'All';
@@ -66,6 +70,7 @@ export class CourseViewComponent {
             this.selectedCourses = filter;
         }
     }
+
 
     selectTerm(term: string) {
         this.selectedTerm = term;
@@ -76,13 +81,26 @@ export class CourseViewComponent {
         this.log();
     }
 
+
     prevSection() {
         this.activeFormSection--;
     }
 
+
     nextSection() {
         this.activeFormSection++;
     }
+
+
+    checkInputValue() {
+        if (this.courseTerm != '') {
+            this.notEmpty = true;
+        }
+        else {
+            this.notEmpty = false;
+        }
+    }
+
 
     log() {
         console.log(this.courseObject);

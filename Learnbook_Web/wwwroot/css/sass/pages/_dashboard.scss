@@ -8,67 +8,110 @@
 
 .learnbook-dashboard-nav {
     display: flex;
+    position: fixed;
+    top: 80px;
     align-content: center;
-    width: 87.5%;
+    width: 100%;
     margin: 0 auto;
-    height: 70px;
     min-height: 70px;
-    margin-bottom: 4rem;
-    background-color: transparent;
+    padding: 1rem 0;
+    margin-bottom: 8rem;
+    background-color: $white;
+    border-top: 1.5px dotted #FAFAFA;
     border-bottom: 1px solid #E4E4E6;
-    z-index: 1000;
+
+    .learnbook-btn-logo {
+        position: absolute;
+        top: 0.75rem;
+        right: 8rem;
+        background-color: $green;
+        padding: 0;
+        padding-right: 0.8rem;
+        height: 42px;
+        box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.04), 0 1px 18px 0 rgba(0, 0, 0, 0.02), 0 3px 5px -1px rgba(0, 0, 0, 0.01);
+
+        &:hover {
+            background-color: $green-hover;
+            box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.08), 0 1px 18px 0 rgba(0, 0, 0, 0.06), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+        }
+
+        span {
+            position: relative;
+            top: -1.2rem;
+            color: $white;
+        }
+    }
 }
 
 .dashboard-nav-list {
     position: relative;
+    margin-left: 7.5rem;
 
     .dashboard-nav-item {
-        float: left;
+        position: relative;
         display: inline-block;
-        width: 110px;
         text-align: center;
-        padding: 1.9rem 0;
+        overflow: hidden;
+        height: 3em;
+        padding: 0.75rem 0;
+        margin-right: 2rem;
         background-color: transparent;
+        font-family: $montserrat;
         cursor: pointer;
-        font-weight: normal;
         color: #bdbdbd;
-        font-size: 0.925em;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.825rem;
+        letter-spacing: 0.05rem;
         @include transition(all 300ms ease-out);
 
         &:last-of-type {
             margin-right: 0;
         }
 
-        @for $i from 0 to 5 {
-            &:nth-child(#{$i}).active ~ .nav-list-line {
-                @include transform(translate3d(($i - 1) * 100%, 0, 0));
-            }
+        &:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            opacity: 0;
+            background: $blue;
+            @include transform(translate3d(0, -3em, 0));
+            -webkit-transition: -webkit-transform 0s 0.3s, opacity 0.2s;
+            transition: transform 0s 0.3s, opacity 0.2s;
         }
 
         &.active {
-            font-weight: bold;
-            color: $black;
-        }
-    }
+            color: $blue;
 
-    .nav-list-line {
-        position: absolute;
-        top: 95%;
-        left: 0;
-        width: 110px;
-        height: 4px;
-        pointer-events: none;
-        background-color: $blue;
-        -webkit-transition: -webkit-transform 0.5s;
-        transition: transform 0.5s;
-        -webkit-transition-timing-function: cubic-bezier(1, 0.01, 0, 1);
-        -webkit-transition-timing-function: cubic-bezier(1, 0.01, 0, 1.22);
-        transition-timing-function: cubic-bezier(1, 0.01, 0, 1.22);
+            &:before {
+                opacity: 1;
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+                -webkit-transition: -webkit-transform 0.3s, opacity 0.1s;
+                transition: transform 0.3s, opacity 0.1s;
+                -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .nav-helper {
+                -webkit-animation: line-animation 0.3s forwards;
+                animation: line-animation 0.3s forwards;
+            }
+        }
+
+        .nav-helper {
+            display: block;
+            pointer-events: none;
+        }
     }
 }
 
 .learnbook-dashboard-content {
     min-height: calc(100vh - 277.4px);
+    margin-top: 18.5rem;
 }
 
 
@@ -81,35 +124,106 @@
 
 .view-actions {
     position: absolute;
-    top: -8rem;
+    top: -5.5rem;
     right: 0;
     width: 100%;
     z-index: 100;
+
+    .view-action-search {
+        display: inline-block;
+        width: 15rem;
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+
+        &:hover {
+            .svg-icon {
+                @include transform(translateX(12.5rem));
+            }
+
+            .search-text-placeholder {
+                opacity: 1;
+            }
+
+            .view-search {
+                border-bottom-color: #9e9e9e;
+            }
+        }
+
+        &.not-empty {
+            .svg-icon {
+                @include transform(translateX(12.5rem));
+            }
+
+            .search-text-placeholder {
+                opacity: 0;
+            }
+
+            .view-search {
+                border-bottom-color: #9e9e9e;
+                cursor: text;
+            }
+        }
+
+        .svg-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            @include transition(all 300ms ease-out);
+        }
+
+        .search-text-placeholder {
+            position: absolute;
+            top: 1rem;
+            left: 0;
+            color: #9e9e9e;
+            opacity: 0;
+            @include transition(all 300ms ease-out);
+            z-index: -1;
+        }
+
+        .view-search {
+            float: left;
+            height: 45px;
+            border-bottom-color: transparent;
+            cursor: pointer;
+            padding-right: 2rem;
+            box-sizing: border-box;
+
+            &:focus {
+                border-bottom-color: #9e9e9e;
+                cursor: text;
+            }
+        }
+
+        .view-search:focus ~ .svg-icon {
+            @include transform(translateX(12.5rem));
+        }
+
+        .view-search:focus + .search-text-placeholder {
+            opacity: 0;
+            @include transform(translateY(-50px));
+        }
+    }
 
     .view-action-dropdown {
         display: inline-block;
         cursor: pointer;
         position: absolute;
-        left: 50%;
-        @include transform(translateX(-50%));
+        right: 7rem;
 
         &.show {
             .learnbook-btn-primary-outline {
                 color: $blue;
-                background-color: $white;
-                box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.08), 0 1px 18px 0 rgba(0, 0, 0, 0.06), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
             }
         }
 
         .learnbook-btn-primary-outline {
             padding: 1rem;
-            background-color: $white;
-            box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.04), 0 1px 18px 0 rgba(0, 0, 0, 0.02), 0 3px 5px -1px rgba(0, 0, 0, 0.01);
+            background-color: transparent;
 
             &:hover {
                 color: $blue;
-                background-color: $white;
-                box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.08), 0 1px 18px 0 rgba(0, 0, 0, 0.06), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
             }
         }
 
@@ -118,12 +232,12 @@
         }
 
         .dropdown-menu {
-            left: 50%;
+            right: 0;
+            left: auto;
             padding: 0;
             border: none;
             border-radius: 0;
             box-shadow: 0 0 1px rgba(76, 86, 103, 0.25), 0 2px 18px rgba(31, 37, 50, 0.32);
-            margin-left: -70px;
 
             .filter-list li {
                 display: flex;
@@ -155,17 +269,17 @@
         right: 0;
 
         .learnbook-btn-logo {
-            position: relative;
-            top: -1.2rem;
-            background-color: $blue;
+            position: absolute;
+            top: -6.25rem;
+            right: 0;
+            background-color: $green;
             padding: 0;
             padding-right: 0.8rem;
             height: 42px;
-            margin-right: 1rem;
             box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.04), 0 1px 18px 0 rgba(0, 0, 0, 0.02), 0 3px 5px -1px rgba(0, 0, 0, 0.01);
 
             &:hover {
-                background-color: $blue-hover;
+                background-color: $green-hover;
                 box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.08), 0 1px 18px 0 rgba(0, 0, 0, 0.06), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
             }
 
@@ -305,12 +419,15 @@
     position: relative;
 
     .course-card-item {
+        position: relative;
         display: inline-block;
         width: 22.5%;
         max-width: 330px;
-        height: 30rem;
+        height: 20rem;
         cursor: pointer;
         margin-right: 3rem;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
         box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.04), 0 1px 18px 0 rgba(0, 0, 0, 0.02), 0 3px 5px -1px rgba(0, 0, 0, 0.01);
         background-color: $white;
         transition: all 0.3s ease-out;
@@ -324,20 +441,39 @@
             box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.08), 0 1px 18px 0 rgba(0, 0, 0, 0.06), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
         }
 
-        .top-half-card {
-            position: relative;
+        .course-top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
             background-color: $blue;
-            height: 40%;
-            z-index: 10;
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+            padding: 0.25rem 1rem;
+
+            span {
+                color: #fff;
+                font-weight: bold;
+                font-family: $montserrat;
+                font-size: 0.8rem;
+            }
+
+            .svg-icon {
+                width: 16px;
+                height: 16px;
+                margin-top: 0.15rem;
+                float: right;
+                @include transform(rotate(90deg));
+            }
+        }
+
+        .course-card-container {
+            position: relative;
 
             .course-icon {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                -webkit-transform: translate(-50%, -50%);
-                width: 10rem;
-                height: 10rem;
+                width: 8rem;
+                height: 8rem;
+                margin: 1rem auto 0;
             }
 
             .course-card-dropdown {
@@ -355,62 +491,40 @@
                     }
                 }
             }
-        }
-
-        .bottom-half-card {
-            position: relative;
-            height: 60%;
-            padding: 1.5rem 2rem;
 
             .course-title-content {
+                text-align: center;
+
                 .course-code {
                     display: block;
-                    font-size: 0.825em;
+                    font-size: 0.8em;
                     color: #bdbdbd;
                     font-weight: 700;
                     margin-bottom: 0.5rem;
                 }
 
                 h3 {
-                    font-size: 1.225em;
+                    font-size: 0.925em;
                     letter-spacing: 0.025rem;
                     margin: 0;
+                    margin-bottom: 0.5rem;
                 }
             }
 
             .course-stat-content {
-                position: absolute;
-                left: 50%;
-                bottom: 2.5rem;
-                width: 85%;
-                padding-top: 1rem;
-                border-top: 2px solid #f4f4f4;
-                transform: translateX(-50%);
-                -webkit-transform: translateX(-50%);
+                padding-top: 1.5rem;
+                text-align: center;
 
                 .stat-content {
                     display: inline-block;
-
-                    &.course-student {
-                        float: left;
-                    }
-
-                    &.course-term {
-                        float: right;
-                    }
-
-                    h3 {
-                        font-size: 0.825em;
-                    }
+                    padding: 0.5rem;
+                    width: 6rem;
+                    border-radius: 2rem;
+                    background-color: #009FF5;
 
                     .student-number {
-                        font-size: 2em;
-                        color: $blue;
-                    }
-
-                    .term-text {
-                        display: block;
-                        margin-top: 1.25rem;
+                        font-size: 0.825em;
+                        color: #fff;
                     }
                 }
             }
@@ -419,8 +533,6 @@
 }
 
 .course-list {
-    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.04), 0 1px 18px 0 rgba(0, 0, 0, 0.02), 0 3px 5px -1px rgba(0, 0, 0, 0.01);
-
     .course-item {
         display: flex;
         -webkit-flex-direction: row;
@@ -434,8 +546,9 @@
         -webkit-align-content: center;
         align-content: center;
         padding: 0.6rem 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.04), 0 1px 18px 0 rgba(0, 0, 0, 0.02), 0 3px 5px -1px rgba(0, 0, 0, 0.01);
         background-color: #fff;
-        border-bottom: 2px dotted #f5f5f5;
         @include transition(all 0.3s ease-out);
 
         &:last-of-type {
@@ -582,13 +695,6 @@
 
 
 //=== Assignment Dashboard View ===/
-#assignment-dashboard-view {
-    .view-actions {
-        .filter-assignment-dropdown-menu {
-            min-width: 20rem;
-            margin-left: -140px;
-        }
-    }
-}
+
 //=== END Assignment Dashboard View ===/
 
