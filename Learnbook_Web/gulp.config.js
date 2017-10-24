@@ -1,7 +1,8 @@
 ﻿module.exports = function () {
 
     var base = {
-        webroot: "./wwwroot/",
+        dist: "./wwwroot/dist/",
+        webroot: "./wwwroot/src/",
         node_modules: "./node_modules/"
     };
 
@@ -10,13 +11,14 @@
          * Files paths
          */
         angular: base.node_modules + "@angular/**/*.js",
-        app: "App/**/*.*",
-        appDest: base.webroot + "app",
+        app: "App/src/**/*.*",
+        appDest: base.dist + "app",
         js: base.webroot + "js/*.js",
-        jsDest: base.webroot + 'js',
-        css: base.webroot + "css/*.css",
-        cssDest: base.webroot + 'css',
+        jsDest: base.dist + 'js',
+        css: "./App/styles/Site.css",
+        cssDest: base.dist + 'css/',
         lib: base.webroot + "lib/",
+        libDest: base.dist + "lib/",
         node_modules: base.node_modules,
         angularWebApi: base.node_modules + "angular2-in-memory-web-api/*.js",
         angularMoment: base.node_modules + "angular2-moment/*",

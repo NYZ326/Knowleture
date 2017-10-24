@@ -1,0 +1,46 @@
+/* Colors */
+$blue: #009FF5;
+$blue-hover: #0085CC;
+
+$yellow: #FEB548;
+$yellow-hover: #FEA520;
+
+$white: #fff;
+$black: #000;
+
+$gray: #e6e6e6;
+
+$red: #f44336;
+$red-hover: #e53935;
+
+$green: #4caf50;
+$green-hover: #388e3c;
+
+/* Padding */
+$padding-8: 0.8rem;
+$padding-16: 1.6rem;
+$padding-24: 2.4rem;
+$padding-32: 3.2rem;
+
+$padding-vertical-8: 0.8rem 0;
+$padding-vertical-16: 1.6rem 0;
+$padding-vertical-24: 2.4rem 0;
+$padding-vertical-32: 3.2rem 0;
+
+$padding-horizontal-8: 0 0.8rem;
+$padding-horizontal-16: 0 1.6rem;
+$padding-horizontal-24: 0 2.4rem;
+$padding-horizontal-32: 0 3.2rem;
+
+/* Fonts */
+$montserrat: "Montserrat", sans-serif;
+$roboto: "Roboto", sans-serif;
+
+/* Breakpoint */
+$breakpoint: (
+    "screen-xs": 320px,
+    "screen-sm": 576px,
+    "screen-md": 768px,
+    "screen-lg": 1200px,
+    "screen-xl": 1800px
+);

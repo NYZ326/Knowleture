@@ -1,24 +1,26 @@
 ﻿/// <binding Clean='clean' />
-"use strict";
+'use strict';
 
-var gulp = require('gulp');
-var config = require('./gulp.config')();
+const gulp = require('gulp');
+const config = require('./gulp.config')();
 //var cleanCSS = require('gulp-clean-css');
-var clean = require('gulp-clean');
-var rename = require('gulp-rename');
-var $ = require('gulp-load-plugins')({ lazy: true });
+const clean = require('gulp-clean');
+const rename = require('gulp-rename');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const $ = require('gulp-load-plugins')({ lazy: true });
 
-gulp.task("clean:js", function (cb) {
+gulp.task('clean:js', (cb) => {
     //return $.rimraf('wwwroot/js/*.min.js', cb);
-    return gulp.src('wwwroot/js/*.min.js', { read: false }).pipe(clean());
+    return gulp.src('wwwroot/dist/js/*.min.js', { read: false }).pipe(clean());
 });
 
-//gulp.task("clean:css", function (cb) {
-//    //return $.rimraf('wwwroot/css/*.min.css', cb);
+//gulp.task('clean:css', (cb) => {
+//    return $.rimraf('wwwroot/css/*.min.css', cb);
 //    return gulp.src('wwwroot/css/*.min.css', { read: false }).pipe(clean());
 //});
 
-gulp.task('minify:css', function () {
+gulp.task('minify:css', () => {
     return gulp.src(config.css)
         .pipe(cleanCSS())
         .pipe(rename({
@@ -27,113 +29,130 @@ gulp.task('minify:css', function () {
         .pipe(gulp.dest(config.cssDest));
 });
 
-gulp.task("clean", ["clean:js"]);
+gulp.task('clean', ['clean:js']);
 //gulp.task('minify', ['minify:css']);
 
-gulp.task("copy:angular", function () {
-
+gulp.task('copy:angular', () => {
     return gulp.src(config.angular,
-        { base: config.node_modules + "@angular/" })
-        .pipe(gulp.dest(config.lib + "@angular/"));
+        { base: config.node_modules + '@angular/' })
+        .pipe(gulp.dest(config.libDest + '@angular/'));
 });
 
-gulp.task("copy:angularWebApi", function () {
+gulp.task('copy:angularWebApi', () => {
     return gulp.src(config.angularWebApi,
         { base: config.node_modules })
-        .pipe(gulp.dest(config.lib));
+        .pipe(gulp.dest(config.libDest));
 });
 
-gulp.task("copy:corejs", function () {
+gulp.task('copy:corejs', () => {
     return gulp.src(config.corejs,
         { base: config.node_modules })
-        .pipe(gulp.dest(config.lib));
+        .pipe(gulp.dest(config.libDest));
 });
 
-gulp.task("copy:zonejs", function () {
+gulp.task('copy:zonejs', () => {
     return gulp.src(config.zonejs,
         { base: config.node_modules })
-        .pipe(gulp.dest(config.lib));
+        .pipe(gulp.dest(config.libDest));
 });
 
-gulp.task("copy:reflectjs", function () {
+gulp.task('copy:reflectjs', () => {
     return gulp.src(config.reflectjs,
         { base: config.node_modules })
-        .pipe(gulp.dest(config.lib));
+        .pipe(gulp.dest(config.libDest));
 });
 
-gulp.task("copy:systemjs", function () {
+gulp.task('copy:systemjs', () => {
     return gulp.src(config.systemjs,
         { base: config.node_modules })
-        .pipe(gulp.dest(config.lib));
+        .pipe(gulp.dest(config.libDest));
 });
 
-gulp.task("copy:rxjs", function () {
+gulp.task('copy:rxjs', () => {
     return gulp.src(config.rxjs,
         { base: config.node_modules })
-        .pipe(gulp.dest(config.lib));
+        .pipe(gulp.dest(config.libDest));
 });
 
-gulp.task("copy:app", function () {
+gulp.task('copy:jasmine', () => {
+    return gulp.src(config.jasminejs,
+        { base: config.node_modules + 'jasmine-core/lib' })
+        .pipe(gulp.dest(config.libDest));
+});
+
+gulp.task('copy:ngIdle', () => {
+    return gulp.src(config.ngIdle,
+        { base: config.node_modules })
+        .pipe(gulp.dest(config.libDest));
+});
+
+gulp.task('copy:ngKeepAlive', () => {
+    return gulp.src(config.ngIdleKeepAlive,
+        { base: config.node_modules })
+        .pipe(gulp.dest(config.libDest));
+});
+
+gulp.task('copy:angularMoment', () => {
+    return gulp.src(config.angularMoment,
+        { base: config.node_modules })
+        .pipe(gulp.dest(config.libDest));
+});
+
+gulp.task('copy:ngBootstrap', () => {
+    return gulp.src(config.ngBootstrap,
+        { base: config.node_modules })
+        .pipe(gulp.dest(config.libDest));
+});
+
+gulp.task('copy:lodash', () => {
+    return gulp.src(config.lodash,
+        { base: config.node_modules })
+        .pipe(gulp.dest(config.libDest));
+});
+
+/*=== App Specific ===*/
+gulp.task('copy:app', () => {
     return gulp.src(config.app)
         .pipe(gulp.dest(config.appDest));
 });
 
-gulp.task("copy:jasmine", function () {
-    return gulp.src(config.jasminejs,
-        { base: config.node_modules + "jasmine-core/lib" })
-        .pipe(gulp.dest(config.lib));
+gulp.task('prefix:css', () => {
+    var plugins = [
+        autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        })
+    ];
+
+    return gulp.src(config.css)
+        .pipe(postcss(plugins))
+        .pipe(gulp.dest(config.cssDest));
 });
 
-gulp.task("copy:ngIdle", function () {
-    return gulp.src(config.ngIdle,
-        { base: config.node_modules })
-        .pipe(gulp.dest(config.lib));
-});
-
-gulp.task("copy:ngKeepAlive", function () {
-    return gulp.src(config.ngIdleKeepAlive,
-        { base: config.node_modules })
-        .pipe(gulp.dest(config.lib));
-});
-
-gulp.task("copy:angularMoment", function () {
-    return gulp.src(config.angularMoment,
-        { base: config.node_modules })
-        .pipe(gulp.dest(config.lib));
-});
-
-gulp.task("copy:ngBootstrap", function () {
-    return gulp.src(config.ngBootstrap,
-        { base: config.node_modules })
-        .pipe(gulp.dest(config.lib));
-});
-
-gulp.task("copy:lodash", function () {
-    return gulp.src(config.lodash,
-        { base: config.node_modules })
-        .pipe(gulp.dest(config.lib));
-});
-
-gulp.task("dependencies", [
-    "copy:angular",
-    "copy:angularWebApi",
-    "copy:corejs",
-    "copy:zonejs",
-    "copy:reflectjs",
-    "copy:systemjs",
-    "copy:rxjs",
-    "copy:jasmine",
-    "copy:ngIdle",
-    "copy:ngKeepAlive",
-    "copy:angularMoment",
-    "copy:ngBootstrap",
-    "copy:lodash",
-    "copy:app"
+gulp.task('dependencies', [
+    'copy:angular',
+    'copy:angularWebApi',
+    'copy:corejs',
+    'copy:zonejs',
+    'copy:reflectjs',
+    'copy:systemjs',
+    'copy:rxjs',
+    'copy:jasmine',
+    'copy:ngIdle',
+    'copy:ngKeepAlive',
+    'copy:angularMoment',
+    'copy:ngBootstrap',
+    'copy:lodash'
 ]);
 
-gulp.task("watch", function () {
+gulp.task('app', [
+    'copy:app',
+    'prefix:css'
+]);
+
+gulp.task('watch', () => {
     return $.watch(config.app)
         .pipe(gulp.dest(config.appDest));
 });
 
-gulp.task("default", ["clean", "dependencies"]);
+gulp.task('default', ['clean', 'app']);

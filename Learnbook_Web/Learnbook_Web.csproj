@@ -7,8 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="App\common\directives\" />
-    <Folder Include="wwwroot\lib\" />
+    <Compile Remove="wwwroot\app\**" />
+    <Compile Remove="wwwroot\lib\**" />
+    <Content Remove="wwwroot\app\**" />
+    <Content Remove="wwwroot\lib\**" />
+    <EmbeddedResource Remove="wwwroot\app\**" />
+    <EmbeddedResource Remove="wwwroot\lib\**" />
+    <None Remove="wwwroot\app\**" />
+    <None Remove="wwwroot\lib\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="App\src\common\directives\" />
+    <Folder Include="App\styles\vendor\" />
+    <Folder Include="wwwroot\dist\css\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.1.1" />
@@ -17,10 +29,6 @@
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="wwwroot\app\navigation\navigation.component.html" />
-    <None Include="wwwroot\app\navigation\navigation.component.ts" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Learnbook_Data\Learnbook_Data.csproj" />

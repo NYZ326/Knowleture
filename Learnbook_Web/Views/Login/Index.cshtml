@@ -12,22 +12,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - Learnbook</title>
     <environment names="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" type="text/css" />
-        <link rel="stylesheet" href="~/css/Site.css" type="text/css" />
+        <link rel="stylesheet" href="~/dist/lib/bootstrap/dist/css/bootstrap.css" type="text/css" />
+        <link rel="stylesheet" href="~/dist/css/Site.css" type="text/css" />
     </environment>
     <environment names="Staging,Production">
 
     </environment>
 </head>
 <body>
-    <div class="form-wrap">
-        <div id="login-loading">
-            <div class="loading-spinner"></div>
+    <div class="login-form">
+        <div class="login-form__loading">
+            <div class="login-form__loading__spinner"></div>
         </div>
 
-        <form asp-controller="Login" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" id="learnbook-login-form">
-            <div class="logo-wrap">
-                <img src="~/img/LearnBookLogo.svg" class="img-fluid" alt="Learnbook Logo" />
+        <form asp-controller="Login"
+              asp-action="Login"
+              asp-route-returnurl="@ViewData["ReturnUrl"]"
+              method="post" 
+              id="learnbook-login-form"
+              class="login-form__main">
+
+            <div class="login-form__main__logo">
+                <img src="~/dist/img/LearnBookLogo.svg" class="img-fluid" alt="Learnbook Logo" />
             </div>
 
             <div class="form-horizontal">
@@ -55,7 +61,7 @@
 
         <div asp-validation-summary="All"></div>
 
-        <footer class="login-footer">
+        <footer class="login-form__footer">
             &copy; @DateTime.Now.Year - Learnbook
         </footer>
     </div>
@@ -65,12 +71,12 @@
     </div>
 
     <environment names="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
-        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-        <script src="~/lib/gsap/src/uncompressed/TweenMax.js"></script>
-        <script src="~/js/login.js" asp-append-version="true"></script>
+        <script src="~/dist/lib/jquery/dist/jquery.js"></script>
+        <script src="~/dist/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/dist/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/dist/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+        <script src="~/dist/lib/gsap/src/uncompressed/TweenMax.js"></script>
+        <script src="~/dist/js/login.js" asp-append-version="true"></script>
     </environment>
     <environment names="Staging,Production">
 

@@ -6,9 +6,9 @@
     "moduleResolution": "node",
     "noEmitOnError": true,
     "noImplicitAny": false,
-    "outDir": "wwwroot/app",
+    "outDir": "wwwroot/dist/app",
     "removeComments": false,
-    "rootDir": "App",
+    "rootDir": "App/src",
     "sourceMap": true,
     "suppressImplicitAnyIndexErrors": true,
     "target": "es6"
