@@ -1,3 +1,3 @@
-# LearnbookApp
+# Knowleture
 
-A WIP school application called Learnbook (subject to change) using ASP.Net Core & Angular 4.
+A WIP school application called Knowleture using ASP.Net Core & Angular 5.
