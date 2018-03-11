@@ -1,0 +1,29 @@
+﻿@include make-all-paddings();
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.background-placeholder {
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    background-color: color(gray);
+    border-radius: 50%;
+}
+
+/* Font Utilities */
+.italic {
+    font-style: italic;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+/* Image Utilities */
+.img-responsive {
+    max-width: 100%;
+    height: auto;
+}

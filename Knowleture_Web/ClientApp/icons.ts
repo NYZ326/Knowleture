@@ -1,0 +1,15 @@
+﻿import './assets/images/icons/user.svg';
+import './assets/images/icons/lock.svg';
+import './assets/images/icons/textbook.svg';
+import './assets/images/icons/textbook-color.svg';
+import './assets/images/icons/textbook-darkblue.svg';
+import './assets/images/icons/paperwork.svg';
+import './assets/images/icons/paperwork-darkblue.svg';
+import './assets/images/icons/quiz.svg';
+import './assets/images/icons/quiz-darkblue.svg';
+import './assets/images/icons/report.svg';
+import './assets/images/icons/report-darkblue.svg';
+import './assets/images/icons/house.svg';
+import './assets/images/icons/house-color.svg';
+import './assets/images/icons/house-darkblue.svg';
+import './assets/images/icons/bell.svg';

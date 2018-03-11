@@ -1,0 +1,13 @@
+﻿<navigation></navigation>
+<sub-navigation [parentComponent]="componentName"
+                [navLinks]="userSubNav"
+                [activeNavItem]="activeView"
+                (activeNavItemChange)="activeViewChange($event)">
+</sub-navigation>
+
+<div class="page-wrapper page-wrapper--dashboard">
+    <div [ngSwitch]="activeView">
+        <dashboard-home *ngSwitchCase="'Home'"></dashboard-home>
+        <dashboard-course *ngSwitchCase="'Courses'"></dashboard-course>
+    </div>
+</div>

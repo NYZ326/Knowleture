@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "es5",
+      "es6",
+      "dom"
+    ],
+    "noImplicitAny": false,
+    "removeComments": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "baseUrl": "./",
+    "paths": {
+      "app/*": [ "ClientApp/app/*" ]
+    },
+    "types": [ "node" ],
+    "typeRoots": [
+      "./node_modules/@types/"
+    ]
+  },
+  "awesomeTypescriptLoaderOptions": {
+    "useWebpackText": true
+  },
+  "exclude": [
+    "node_modules",
+    "wwwroot",
+    "typings",
+    "**.spec.ts"
+  ]
+}

@@ -9,11 +9,9 @@ namespace Learnbook_Data.Models
     public abstract class User
     {
         public int UserId { get; set; }
-        [Required]
         public string Username { get; set; }
-        [Required]
-        [JsonIgnore]
-        public string Password { get; set; }
+        public byte[] PasswordHash { get; set; }
+        public byte[] PasswordSalt { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string FullName

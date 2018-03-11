@@ -1,0 +1,95 @@
+﻿.sub-header {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100vw;
+    background-color: color(white);
+    box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+
+    &__container {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+}
+
+.sub-nav-list {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    &__item {
+        position: relative;
+        text-transform: uppercase;
+        font-family: $montserrat;
+        font-weight: 700;
+        letter-spacing: 0.02rem;
+        color: color(lightgray);
+        padding: 1rem 2rem;
+        margin-right: 0.5rem;
+        cursor: pointer;
+        transition: all 0.2s ease-out;
+
+        .icons {
+            margin-right: 5px;
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+        }
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+
+        &.active,
+        &:hover {
+            color: color(darkblue);
+
+            .icons--house {
+                background-image: url('../images/icons/house-darkblue.svg');
+            }
+
+            .icons--textbook {
+                background-image: url('../images/icons/textbook-darkblue.svg');
+            }
+
+            .icons--quiz {
+                background-image: url('../images/icons/quiz-darkblue.svg');
+            }
+
+            .icons--report {
+                background-image: url('../images/icons/report-darkblue.svg');
+            }
+
+            .icons--paperwork {
+                background-image: url('../images/icons/paperwork-darkblue.svg');
+            }
+
+            &:before {
+                left: 0;
+                right: auto;
+                width: 100%;
+            }
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            right: 0;
+            width: 0;
+            bottom: 0;
+            background-color: color(darkblue);
+            height: 2px;
+            transition-property: width;
+            transition-duration: 0.2s;
+            transition-timing-function: ease-out;
+        }
+    }
+}

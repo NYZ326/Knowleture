@@ -1,0 +1,125 @@
+﻿/* Google Fonts */
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700,900|Roboto:400,400i);
+/* Base */
+/* Fonts */
+/* Colors */
+/* Breakpoint */
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  background-color: #F7F7F7; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700; }
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+/* Fonts */
+/* Colors */
+/* Breakpoint */
+.italic {
+  font-style: italic; }
+
+.no-pad {
+  padding: 0 !important; }
+
+.circle-img {
+  border-radius: 50%; }
+
+.thumbnail-img {
+  width: 40px;
+  height: 40px; }
+
+.thumbnail-lg-img {
+  width: 74px;
+  height: 74px; }
+
+/* Layout */
+/* Module */
+.btn {
+  display: inline-block;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border-radius: 100px;
+  padding: 0 60px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.15s ease-in-out; }
+  .btn:focus, .btn:hover {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: 0; }
+  .btn.disabled, .btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed; }
+  .btn--primary {
+    background-color: #1589EE;
+    color: #fff; }
+  .btn--secondary {
+    background-color: #FFB75D;
+    color: #fff; }
+  .btn--tertiary {
+    background-color: transparent;
+    color: #1589EE;
+    border-color: #1589EE; }
+
+/* Pages */
+.background-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+.login-form {
+  position: relative;
+  overflow: hidden;
+  width: 325px;
+  height: 82.5vh;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 5rem auto 0;
+  z-index: 10; }
+  .login-form h2 {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin: 0 0 30px;
+    font-weight: 700;
+    text-align: center;
+    color: #141414; }
+  .login-form__main__logo {
+    padding: 2.25em 0 0.75em; }
+    .login-form__main__logo img {
+      display: block;
+      margin: 0 auto; }
+  .login-form__footer {
+    position: absolute;
+    bottom: 3rem;
+    width: 100%;
+    text-align: center;
+    color: #999;
+    font-size: 0.925em; }
+
+.input-field {
+  position: relative;
+  margin-top: 1.4rem; }
+  .input-field label {
+    color: #9e9e9e;
+    position: absolute;
+    top: 0.8rem;
+    font-size: 1rem;
+    cursor: text;
+    transition: 0.2s ease-out;
+    font-weight: normal; }
+

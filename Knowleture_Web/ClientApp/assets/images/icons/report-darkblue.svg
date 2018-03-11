@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title"
+aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink"
+width="64" height="64">
+  <title>Bar Chart</title>
+  <desc>A line styled icon from Orion Icon Library.</desc>
+  <path data-name="layer1"
+  fill="none" stroke="#00396B" stroke-miterlimit="10" stroke-width="2" d="M52 54V10h8v44"
+  stroke-linejoin="miter" stroke-linecap="round"></path>
+  <path data-name="layer2" fill="none" stroke="#00396B" stroke-miterlimit="10"
+  stroke-width="2" d="M36 54V30h8v24" stroke-linejoin="miter" stroke-linecap="round"></path>
+  <path data-name="layer1" fill="none" stroke="#00396B" stroke-miterlimit="10"
+  stroke-width="2" d="M20 54V22h8v32" stroke-linejoin="miter" stroke-linecap="round"></path>
+  <path data-name="layer2" fill="none" stroke="#00396B" stroke-miterlimit="10"
+  stroke-width="2" d="M4 54V42h8v12" stroke-linejoin="miter" stroke-linecap="round"></path>
+  <path data-name="layer1" fill="none" stroke="#00396B" stroke-miterlimit="10"
+  stroke-width="2" d="M62 54H2" stroke-linejoin="miter" stroke-linecap="round"></path>
+</svg>

@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learnbook_Data", "Learnbook_Data\Learnbook_Data.csproj", "{5D2DBE05-F895-46A7-B3D8-B8F8ADDFB515}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learnbook_Web", "Learnbook_Web\Learnbook_Web.csproj", "{9FBEDE38-1187-4128-ABC3-0EE839D7887C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Knowleture_Web", "Knowleture_Web\Knowleture_Web.csproj", "{61FA3D24-0EF8-4588-BB1B-F16400E66DDE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +17,15 @@ Global
 		{5D2DBE05-F895-46A7-B3D8-B8F8ADDFB515}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D2DBE05-F895-46A7-B3D8-B8F8ADDFB515}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D2DBE05-F895-46A7-B3D8-B8F8ADDFB515}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9FBEDE38-1187-4128-ABC3-0EE839D7887C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9FBEDE38-1187-4128-ABC3-0EE839D7887C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9FBEDE38-1187-4128-ABC3-0EE839D7887C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9FBEDE38-1187-4128-ABC3-0EE839D7887C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61FA3D24-0EF8-4588-BB1B-F16400E66DDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61FA3D24-0EF8-4588-BB1B-F16400E66DDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61FA3D24-0EF8-4588-BB1B-F16400E66DDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61FA3D24-0EF8-4588-BB1B-F16400E66DDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {66A5C973-31D7-4E6F-A8E3-6E3C1058BF26}
 	EndGlobalSection
 EndGlobal

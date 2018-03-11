@@ -1,0 +1,32 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using System.Security.Claims
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Knowleture</title>
+    <environment names="Development">
+        <link rel="stylesheet" href="~/dev/css/bootstrap-grid.css" type="text/css" />
+        <link rel="stylesheet" href="~/dev/css/styles.css" type="text/css" />
+    </environment>
+    <environment names="Staging,Production">
+
+    </environment>
+
+    <base href="/" />
+</head>
+<body>
+    @RenderBody()
+
+    <environment names="Development">
+        <script src="~/dev/dist/polyfills.bundle.js"></script>
+        <script src="~/dev/dist/vendor.bundle.js"></script>
+        <script src="~/dev/dist/app.bundle.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+
+    </environment>
+</body>
+</html>

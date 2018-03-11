@@ -1,0 +1,12 @@
+[
+  {
+    "outputFile": "wwwroot/css/Site.css",
+    "inputFile": "wwwroot/css/Site.scss",
+    "sourceMap": false
+  },
+  {
+    "outputFile": "wwwroot/src/css/Site.css",
+    "inputFile": "wwwroot/src/css/Site.scss",
+    "sourceMap": false
+  }
+]

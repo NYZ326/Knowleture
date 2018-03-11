@@ -1,0 +1,47 @@
+﻿<header class="page-header">
+    <div class="page-header__container">
+        <a [routerLink]="['/dashboard']" class="page-header__home">
+            <div class="page-header__logo">
+                <img src="../images/knowleture-logo-white.svg" alt="Knowleture Logo" class="img-responsive" />
+            </div>
+            <span>Knowleture</span>
+        </a>
+        
+        <div class="page-header__nav">
+            <div class="dropdown dropdown--notification">
+                <button class="btn btn--dropdown dropdown-toggle" 
+                        type="button" 
+                        id="notificationDropdown" 
+                        data-toggle="dropdown" 
+                        aria-haspopup="true" 
+                        aria-expanded="false">
+                    <i class="icons icons--bell"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="notificationDropdown">
+                    <div class="dropdown-menu__content">
+                        <h3 class="dropdown-menu__content__title">Notifications</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dropdown dropdown--profile">
+                <button class="btn btn--dropdown dropdown-toggle"
+                        type="button"
+                        id="notificationDropdown"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false">
+                    <span class="background-placeholder"></span>
+                    <span>{{userData.FirstName + ' ' + userData.LastName}}</span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="notificationDropdown">
+                    <div class="dropdown-menu__content">
+                        <a class="dropdown-menu__item" href="#">Action</a>
+                        <a class="dropdown-menu__item" href="#">Another action</a>
+                        <a class="dropdown-menu__item" href="#">Something else here</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

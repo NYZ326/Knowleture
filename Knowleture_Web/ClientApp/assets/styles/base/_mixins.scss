@@ -1,0 +1,59 @@
+﻿@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+
+        @if $type == max {
+            $width: $width - 1px;
+        }
+
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+@mixin font-size($sizeValue: 1) {
+    font-size: ($sizeValue * 10) + px;
+    font-size: $sizeValue + rem;
+}
+
+@mixin make-paddings($padding) {
+    .padding--#{$padding} {
+        padding: $padding * 1px !important;
+    }
+
+    .padding-left--#{$padding} {
+        padding-left: $padding * 1px !important;
+    }
+
+    .padding-right--#{$padding} {
+        padding-right: $padding * 1px !important;
+    }
+
+    .padding-top--#{$padding} {
+        padding-top: $padding * 1px !important;
+    }
+
+    .padding-bottom--#{$padding} {
+        padding-bottom: $padding * 1px !important;
+    }
+
+    .padding-vertical--#{$padding} {
+        @extend .padding-top--#{$padding};
+        @extend .padding-bottom--#{$padding};
+    }
+
+    .padding-horizontal--#{$padding} {
+        @extend .padding-left--#{$padding};
+        @extend .padding-right--#{$padding};
+    }
+}
+
+@mixin make-all-paddings() {
+    @include make-paddings($padding-none);
+    @include make-paddings($padding-sm);
+    @include make-paddings($padding-base);
+    @include make-paddings($padding-lg);
+    @include make-paddings($padding-xl);
+    @include make-paddings($padding-xxl);
+}

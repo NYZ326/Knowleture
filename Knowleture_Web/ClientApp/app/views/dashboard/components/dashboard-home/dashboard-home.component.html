@@ -1,0 +1,22 @@
+﻿<div class="dashboard dashboard--home padding-vertical--30">
+    <div class="container">
+        <div class="dashboard__header">
+            <h2>Hello, {{userData.FirstName + ' ' + userData.LastName}}!</h2>
+            <p>Here's a summary of your progress for the current semester.</p>
+        </div>
+
+        <div class="dashboard__content padding-vertical--20">
+            <div class="dashboard__content__list">
+                <card [type]="'stats'"
+                      [style.width.%]="30"
+                      [data]=""></card>
+                <card [type]="'stats'"
+                      [style.width.%]="30"
+                      [data]=""></card>
+                <card [type]="'stats'"
+                      [style.width.%]="30"
+                      [data]=""></card>
+            </div>
+        </div>
+    </div>
+</div>

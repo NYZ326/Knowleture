@@ -1,0 +1,197 @@
+.feature-container {
+    display: flex;
+    width: 30vw;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 600px;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0,57,107,.65);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: url(../images/loginBg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right center;
+
+    &__logo {
+        position: absolute;
+        top: 5vh;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &__content {
+        text-align: center;
+        padding: 0 3rem;
+
+        &__title {
+            color: color(white);
+            text-transform: uppercase;
+            letter-spacing: 0.02rem;
+        }
+
+        &__description {
+            color: color(white);
+            @include font-size(1.4);
+        }
+
+        &__btn {
+            font-size: 0.7rem;
+            position: absolute;
+            bottom: 5vh;
+            padding: 12px 24px;
+            background-color: #fff;
+            color: #507496;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+.login-container {
+    position: relative;
+    width: 70vw;
+    height: 100vh;
+    margin-left: 30vw;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+
+    &__text-content {
+        margin-bottom: 3rem;
+
+        h3 {
+            letter-spacing: 0.02rem;
+            text-transform: uppercase;
+            @include font-size(1.6);
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    &__form {
+        position: relative;
+        width: 90%;
+        max-width: 540px;
+        margin: 0 auto;
+
+        .form-control {
+            margin-bottom: 2.5rem;
+
+            &__submit {
+                .form-control__error {
+                    width: 100%;
+                    opacity: 1;
+                    visibility: visible;
+                    left: 50%;
+                    right: auto;
+                    bottom: -3rem;
+                    transform: translateX(-50%);
+                }
+            }
+        }
+    }
+}
+
+.app-version-container {
+    position: fixed;
+    top: 5vh;
+    right: 30px;
+
+    span {
+        color: color(gray);
+        @include font-size(0.7);
+        font-family: $montserrat;
+        letter-spacing: 0.05rem;
+        text-transform: uppercase;
+    }
+}
+
+.btn--submit {
+    &.btn--show-loader {
+
+        .btn--submit__text {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(50px);
+        }
+
+        .btn--submit__loader {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    }
+
+    &__text {
+        display: inline-block;
+        transition: all 0.2s ease-out;
+    }
+
+    &__loader {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(50px);
+        transition: all 0.2s ease-out;
+
+        span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            position: absolute;
+            top: -0.85rem;
+            left: 50%;
+            margin-left: -6px;
+            background-color: color(white);
+            animation: 3s infinite linear;
+
+            &:nth-child(1) {
+                animation: kiri 1.2s infinite linear;
+            }
+
+            &:nth-child(2) {
+                z-index: 100;
+            }
+
+            &:nth-child(3) {
+                animation: kanan 1.2s infinite linear;
+            }
+        }
+    }
+}
+
+@keyframes kanan {
+    0% {
+        transform: translateX(20px);
+    }
+
+    50% {
+        transform: translateX(-20px);
+    }
+
+    100% {
+        transform: translateX(20px);
+        z-index: 200;
+    }
+}
+
+@keyframes kiri {
+    0% {
+        transform: translateX(-20px);
+        z-index: 200;
+    }
+
+    50% {
+        transform: translateX(20px);
+    }
+
+    100% {
+        transform: translateX(-20px);
+    }
+}

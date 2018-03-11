@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   viewBox="0 0 26.458333 26.458334"
+   height="100"
+   width="100">
+  <g transform="translate(0,-270.54165)">
+    <circle
+       r="11.503626"
+       cy="283.74936"
+       cx="13.336199"
+       style="fill:#1589ee;fill-opacity:1;stroke:#1589ee;stroke-width:1.60511875;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       d="M 7.4346212,279.10422 H 20.6506"
+       style="fill:none;stroke:#0070d2;stroke-width:1.12572515;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <g
+       transform="matrix(0.75708515,0,0,0.75708515,4.0369556,69.58614)"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:15.09316254px;line-height:5.05351448px;font-family:Montserrat;-inkscape-font-specification:'Montserrat, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#0070d2;fill-opacity:1;stroke:none;stroke-width:0.20214058"
+       aria-label="K">
+      <path
+         style="fill:#0070d2;fill-opacity:1;stroke-width:0.20214058"
+         d="m 19.124598,289.27158 -3.999688,-6.32404 3.773291,-4.25627 h -4.029875 l -3.154471,3.66764 v -3.66764 H 8.2122416 v 10.58031 h 3.5016134 v -2.49038 l 1.026335,-1.14708 2.203602,3.63746 z" />
+    </g>
+    <g
+       transform="matrix(0.75708514,0,0,0.75708514,3.2310032,69.255562)"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:15.09316254px;line-height:5.05351448px;font-family:Montserrat;-inkscape-font-specification:'Montserrat, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.20214058"
+       aria-label="K">
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.20214058"
+         d="m 19.124598,289.27158 -3.999688,-6.32404 3.773291,-4.25627 h -4.029875 l -3.154471,3.66764 v -3.66764 H 8.2122416 v 10.58031 h 3.5016134 v -2.49038 l 1.026335,-1.14708 2.203602,3.63746 z" />
+    </g>
+    <path
+       d="M 6.6450144,278.6415 H 19.860993"
+       style="fill:none;stroke:#ffffff;stroke-width:1.12572515;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       d="m 11.560418,290.36399 h 5.306889"
+       style="fill:none;stroke:#0070d2;stroke-width:1.19999528;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       d="m 10.75011,289.93276 h 5.306889"
+       style="fill:none;stroke:#ffffff;stroke-width:1.19999528;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+</svg>

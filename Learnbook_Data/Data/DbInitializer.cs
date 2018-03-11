@@ -18,6 +18,7 @@ namespace Learnbook_Data.Data
                 return; // Seed is already implemented
             }
 
+
             #region Seed Roles
             //Roles
             var roles = new List<Role> {
@@ -42,13 +43,20 @@ namespace Learnbook_Data.Data
             #endregion
 
             #region Seed Students
+            byte[] studentPasswordHash1, studentPasswordSalt1;
+            CreatePasswordHash("zdaud123", out studentPasswordHash1, out studentPasswordSalt1);
+
+            byte[] studentPasswordHash2, studentPasswordSalt2;
+            CreatePasswordHash("aSundara123", out studentPasswordHash2, out studentPasswordSalt2);
+
             // Students
             var students = new Student[]
             {
                 new Student
                 {
                     Username = "zdaud",
-                    Password = "zdaud123",
+                    PasswordHash = studentPasswordHash1,
+                    PasswordSalt = studentPasswordSalt1,
                     FirstName = "Zuhib",
                     LastName = "Daud",
                     Email = "zdaud@learnbook.com",
@@ -65,7 +73,8 @@ namespace Learnbook_Data.Data
                 new Student
                 {
                     Username = "aSundara",
-                    Password = "aSundara123",
+                    PasswordHash = studentPasswordHash2,
+                    PasswordSalt = studentPasswordSalt2,
                     FirstName = "Ananth",
                     LastName = "Sundaramoorthy",
                     Email = "aSundara@learnbook.com",
@@ -90,13 +99,17 @@ namespace Learnbook_Data.Data
             #endregion
 
             #region Seed Instructors
+            byte[] instructorPasswordHash1, instructorPasswordSalt1;
+            CreatePasswordHash("pyork123", out instructorPasswordHash1, out instructorPasswordSalt1);
+
             // Instructors
             var instructors = new Instructor[]
             {
                 new Instructor
                 {
                     Username = "pyork",
-                    Password = "pyork123",
+                    PasswordHash = instructorPasswordHash1,
+                    PasswordSalt = instructorPasswordSalt1,
                     FirstName = "Paul",
                     LastName = "York",
                     Email = "pyork@learnbook.com",
@@ -403,6 +416,25 @@ namespace Learnbook_Data.Data
             }
             context.SaveChanges();
             #endregion
+        }
+
+        private static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+        {
+            if (password == null)
+            {
+                throw new ArgumentNullException("password");
+            }
+
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                throw new ArgumentException("Value cannot be empty or whitespace only string.", "password");
+            }
+
+            using (var hmac = new System.Security.Cryptography.HMACSHA512())
+            {
+                passwordSalt = hmac.Key;
+                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+            }
         }
     }
 }

@@ -1,0 +1,39 @@
+/* Fonts */
+$montserrat: "Montserrat", sans-serif;
+$raleway: "Raleway", sans-serif;
+
+
+/* Padding */
+$padding-xxl: 100;
+$padding-xl: 50;
+$padding-lg: 30;
+$padding-base: 20;
+$padding-sm: 10;
+$padding-none: 0;
+
+/* Colors */
+$colors: (
+    darkblue: #00396B,
+    darkmediumblue: #0070D2,
+    blue: #1589EE,
+    lightmediumblue: #419FF1,
+    lightblue: #67B2F4,
+    gold: #FFB75D,
+    red: #C23934,
+    darkgray: #A9B3C6,
+    gray: #C2C9D6,
+    lightgray: #D4D9E2,
+    extralightgray: #F4F6F9,
+    white: #fff,
+    black: #000
+);
+
+
+/* Breakpoint */
+$breakpoints: (
+    "screen-xs": 320px,
+    "screen-sm": 576px,
+    "screen-md": 768px,
+    "screen-lg": 1200px,
+    "screen-xl": 1800px
+);

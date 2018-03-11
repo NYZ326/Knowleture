@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+    <TypeScriptToolsVersion>2.3</TypeScriptToolsVersion>
+    <RootNamespace>Knowleture_Web</RootNamespace>
+    <AssemblyName>Knowleture_Web</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\app\constants\components.ts" />
+    <None Remove="ClientApp\app\constants\directives.ts" />
+    <None Remove="ClientApp\app\core\services\authentication.service.ts" />
+    <None Remove="ClientApp\app\shared\models\assignment.ts" />
+    <None Remove="ClientApp\app\shared\models\enrollment.ts" />
+    <None Remove="ClientApp\app\shared\models\index.ts" />
+    <None Remove="ClientApp\app\views\login\login.component.ts" />
+    <None Remove="ClientApp\app\shared\directives\input-action.directive.ts" />
+    <None Remove="ClientApp\app\shared\guards\auth.guard.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="2.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="2.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Learnbook_Data\Learnbook_Data.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\constants\components.ts" />
+    <TypeScriptCompile Include="ClientApp\app\constants\directives.ts" />
+    <TypeScriptCompile Include="ClientApp\app\core\services\authentication.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\shared\models\assignment.ts" />
+    <TypeScriptCompile Include="ClientApp\app\shared\models\enrollment.ts" />
+    <TypeScriptCompile Include="ClientApp\app\shared\models\index.ts" />
+    <TypeScriptCompile Include="ClientApp\app\views\login\login.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\shared\directives\input-action.directive.ts" />
+    <TypeScriptCompile Include="ClientApp\app\shared\guards\auth.guard.ts" />
+    <TypeScriptCompile Include="ClientApp\icons.ts" />
+    <TypeScriptCompile Include="ClientApp\polyfills.ts" />
+    <TypeScriptCompile Include="ClientApp\vendor.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+</Project>
