@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-using Learnbook_Data.Data;
+using Knowleture_Data.Data;
 using Knowleture_Web.Common;
-using Learnbook_Data.Models;
+using Knowleture_Data.Models;
 
 namespace Knowleture_Web.Controllers
 {

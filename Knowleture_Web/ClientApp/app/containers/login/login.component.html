@@ -1,0 +1,82 @@
+﻿<div class="page-wrapper page-wrapper--login">
+    <div class="app-logo">
+        <img src="../build/images/knowleture-logo.svg" alt="Knowleture Logo" class="img-responsive" />
+    </div>
+
+    <div class="login-container">
+        <div class="login-container__form">
+            <form name="login-form"
+                  (ngSubmit)="lf.form.valid && onSubmit()"
+                  #lf="ngForm"
+                  novalidate
+                  class="login-form">
+                <div class="login-form__text">
+                    <h2>Welcome</h2>
+                    <p>Please sign into your account.</p>
+                </div>
+
+                <div class="padding-bottom--30 margin-bottom--30 w-h-line">
+                    <div class="form-control form-control--w-logo">
+                        <i class="icons icons--user"></i>
+                        <input type="text"
+                               name="Username"
+                               class="form-control__input"
+                               [(ngModel)]="model.Username"
+                               #username="ngModel"
+                               checkInput
+                               [value]="model.Username"
+                               required />
+                        <label for="Username" class="form-control__label">Username</label>
+                        <span class="form-control__error" [ngClass]="{'form-control__error--has-error':lf.submitted && !username.valid}">Username is required</span>
+                    </div>
+
+                    <div class="form-control form-control--w-logo">
+                        <i class="icons icons--lock"></i>
+                        <input type="password"
+                               name="Password"
+                               class="form-control__input"
+                               [(ngModel)]="model.Password"
+                               #password="ngModel"
+                               checkInput
+                               [value]="model.Password"
+                               required />
+                        <label for="Password" class="form-control__label">Password</label>
+                        <span class="form-control__error" [ngClass]="{'form-control__error--has-error':lf.submitted && !password.valid}">Password is required</span>
+                    </div>
+                </div>
+
+                <div class="form-control flex flex--space">
+                    <div class="form-control__forget-password">
+                        <a href="javascript:;" class="link--primary">Forgot Password?</a>
+                    </div>
+
+                    <div class="form-control__submit">
+                        <span class="form-control__error" *ngIf="error">{{errorMsg}}</span>
+                        <button class="btn btn--primary btn--submit" [disabled]="loading" [ngClass]="{'btn--show-loader': loading}">
+                            <span class="btn--submit__text">Login</span>
+                            <div class="btn--submit__loader">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="app-footer">
+            <span>@{{currentYear}} Knowleture</span>
+        </div>
+    </div>
+
+    <div class="feature-container">
+        <div class="feature-container__content">
+            <h3 class="feature-container__content__title">
+                <small>Knowleture</small>
+            </h3>
+            <p class="feature-container__content__description">The LMS that help make the learning process simple.</p>
+            <a href="javascript:;" class="btn btn--tertiary feature-container__content__btn">Learn More</a>
+        </div>
+    </div>
+</div>

@@ -8,7 +8,7 @@ class AppConfig {
         this.instructorConfig = {
             nav: [
                 {
-                    name: 'Home',
+                    name: 'Dashboard',
                     icon: 'house'
                 },
                 {
@@ -32,7 +32,7 @@ class AppConfig {
         this.studentConfig = {
             nav: [
                 {
-                    name: 'Home',
+                    name: 'Dashboard',
                     icon: 'house'
                 },
                 {

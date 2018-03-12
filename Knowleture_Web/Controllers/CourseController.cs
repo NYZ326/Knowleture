@@ -8,10 +8,10 @@ using Microsoft.EntityFrameworkCore;
 
 using AutoMapper;
 
-using Learnbook_Data.Data;
-using Learnbook_Data.Models;
+using Knowleture_Data.Data;
+using Knowleture_Data.Models;
 using Knowleture_Web.Models;
-using Learnbook_Data.Repositories;
+using Knowleture_Data.Repositories;
 
 
 namespace Knowleture_Web.Controllers
@@ -20,12 +20,12 @@ namespace Knowleture_Web.Controllers
     [Route("course")]
     public class CourseController : BaseController
     {
-        private readonly LearnbookContext _context;
+        private readonly KnowletureContext _context;
         private CourseRepository _courseRepo { get; set; }
         private readonly IMapper _mapper;
 
         #region Constructor
-        public CourseController(LearnbookContext context, CourseRepository courseRepo, IMapper mapper)
+        public CourseController(KnowletureContext context, CourseRepository courseRepo, IMapper mapper)
         {
             _context = context;
             _courseRepo = courseRepo;

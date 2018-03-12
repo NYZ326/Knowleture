@@ -7,10 +7,10 @@
     min-height: 600px;
     height: 100%;
     overflow: hidden;
-    background-color: rgba(0,57,107,.65);
-    position: fixed;
+    position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
+    background-color: rgba(0,57,107,.65);
     background-image: url(../images/loginBg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -40,13 +40,9 @@
 
         &__btn {
             font-size: 0.7rem;
-            position: absolute;
-            bottom: 5vh;
             padding: 12px 24px;
             background-color: #fff;
             color: #507496;
-            left: 50%;
-            transform: translateX(-50%);
         }
     }
 }
@@ -55,33 +51,20 @@
     position: relative;
     width: 70vw;
     height: 100vh;
-    margin-left: 30vw;
+    margin-right: 30vw;
     display: flex;
     align-items: center;
     align-content: center;
     justify-content: center;
     flex-direction: column;
 
-    &__text-content {
-        margin-bottom: 3rem;
-
-        h3 {
-            letter-spacing: 0.02rem;
-            text-transform: uppercase;
-            @include font-size(1.6);
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-        }
-    }
-
     &__form {
         position: relative;
-        width: 90%;
-        max-width: 540px;
+        width: 40%;
         margin: 0 auto;
 
         .form-control {
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
 
             &__submit {
                 .form-control__error {
@@ -98,21 +81,23 @@
     }
 }
 
-.app-version-container {
-    position: fixed;
-    top: 5vh;
-    right: 30px;
+.login-form {
 
-    span {
-        color: color(gray);
-        @include font-size(0.7);
-        font-family: $montserrat;
-        letter-spacing: 0.05rem;
-        text-transform: uppercase;
+    &__text {
+        margin-bottom: 2rem;
+
+        h2 {
+            @include font-size(2.25);
+        }
+
+        p {
+            color: color(gray);
+        }
     }
 }
 
 .btn--submit {
+
     &.btn--show-loader {
 
         .btn--submit__text {

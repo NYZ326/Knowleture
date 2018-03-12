@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"] - Knowleture</title>
     <environment names="Development">
-        <link rel="stylesheet" href="~/dev/css/bootstrap-grid.css" type="text/css" />
-        <link rel="stylesheet" href="~/dev/css/styles.css" type="text/css" />
+        <link rel="stylesheet" href="~/build/css/bootstrap-grid.css" type="text/css" />
+        <link rel="stylesheet" href="~/build/css/styles.css" type="text/css" />
     </environment>
     <environment names="Staging,Production">
 
@@ -21,9 +21,9 @@
     @RenderBody()
 
     <environment names="Development">
-        <script src="~/dev/dist/polyfills.bundle.js"></script>
-        <script src="~/dev/dist/vendor.bundle.js"></script>
-        <script src="~/dev/dist/app.bundle.js"></script>
+        <script src="~/build/dist/polyfills.bundle.js"></script>
+        <script src="~/build/dist/vendor.bundle.js"></script>
+        <script src="~/build/dist/app.bundle.js"></script>
     </environment>
     <environment names="Staging,Production">
 

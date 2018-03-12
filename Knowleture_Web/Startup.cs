@@ -17,7 +17,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
 using Knowleture_Web.Common;
-using Learnbook_Data.Repositories;
+using Knowleture_Data.Repositories;
 using Knowleture_Web.Helper;
 
 namespace LearnbookApp_v2
@@ -40,7 +40,7 @@ namespace LearnbookApp_v2
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<Learnbook_Data.Data.LearnbookContext>(options =>
+            services.AddDbContext<Knowleture_Data.Data.KnowletureContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddAutoMapper();
 

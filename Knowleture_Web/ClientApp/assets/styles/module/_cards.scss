@@ -4,4 +4,8 @@
     background-color: color(white);
     box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
     border-radius: 6px;
+
+    &__inner {
+        height: 100%;
+    }
 }

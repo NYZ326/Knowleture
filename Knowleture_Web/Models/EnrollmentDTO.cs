@@ -1,5 +1,5 @@
-﻿using Learnbook_Data.Enumerations;
-using Learnbook_Data.Models;
+﻿using Knowleture_Data.Enumerations;
+using Knowleture_Data.Models;
 
 namespace Knowleture_Web.Models
 {

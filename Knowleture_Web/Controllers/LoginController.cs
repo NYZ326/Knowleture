@@ -10,8 +10,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 
-using Learnbook_Data.Models;
-using Learnbook_Data.Data;
+using Knowleture_Data.Models;
+using Knowleture_Data.Data;
 using Knowleture_Web.Models;
 using Knowleture_Web.ViewModels;
 using Knowleture_Web.Helper;
@@ -22,11 +22,11 @@ namespace Knowleture_Web.Controllers
     [Produces("application/json")]
     public class LoginController : Controller
     {
-        private readonly LearnbookContext _context;
+        private readonly KnowletureContext _context;
         private readonly AppSettings _appSettings;
 
         #region Constructor
-        public LoginController(LearnbookContext context, IOptions<AppSettings> appSettings)
+        public LoginController(KnowletureContext context, IOptions<AppSettings> appSettings)
         {
             _context = context;
             _appSettings = appSettings.Value;

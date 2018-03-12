@@ -1,6 +1,6 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 
-import { AuthenticationService } from './../../core/services/authentication.service';
+import { AuthenticationService } from 'app/core/services/authentication.service';
 
 @Component({
     moduleId: module.id.toString(),
@@ -12,6 +12,12 @@ export class NavigationComponent implements OnInit {
     /*
      * Properties
      */
+    @Input() parentComponent: any;
+    @Input() navLinks: any;
+    @Input() activeNavItem: any;
+
+    @Output() activeNavItemChange = new EventEmitter<string>();
+
     userData: any;
 
 
@@ -28,5 +34,10 @@ export class NavigationComponent implements OnInit {
      */
     ngOnInit() {
         console.log('NavigationComponent -> ngOnInit');
+    }
+
+    setActiveNav(name: string) {
+        this.activeNavItem = name;
+        this.activeNavItemChange.emit(name);
     }
 }

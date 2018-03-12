@@ -2,7 +2,6 @@
 $montserrat: "Montserrat", sans-serif;
 $raleway: "Raleway", sans-serif;
 
-
 /* Padding */
 $padding-xxl: 100;
 $padding-xl: 50;
@@ -10,6 +9,14 @@ $padding-lg: 30;
 $padding-base: 20;
 $padding-sm: 10;
 $padding-none: 0;
+
+/* Margin */
+$margin-xxl: 100;
+$margin-xl: 50;
+$margin-lg: 30;
+$margin-base: 20;
+$margin-sm: 10;
+$margin-none: 0;
 
 /* Colors */
 $colors: (
@@ -24,10 +31,10 @@ $colors: (
     gray: #C2C9D6,
     lightgray: #D4D9E2,
     extralightgray: #F4F6F9,
+    extralightgraySecondary: #FAFBFD,
     white: #fff,
     black: #000
 );
-
 
 /* Breakpoint */
 $breakpoints: (

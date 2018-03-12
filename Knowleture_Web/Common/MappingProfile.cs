@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Learnbook_Data.Models;
+using Knowleture_Data.Models;
 using Knowleture_Web.Models;
 using System;
 using System.Collections.Generic;

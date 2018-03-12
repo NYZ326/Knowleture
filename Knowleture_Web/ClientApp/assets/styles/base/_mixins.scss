@@ -57,3 +57,44 @@
     @include make-paddings($padding-xl);
     @include make-paddings($padding-xxl);
 }
+
+@mixin make-margins($margin) {
+    .margin--#{$margin} {
+        margin: $margin * 1px !important;
+    }
+
+    .margin-left--#{$margin} {
+        margin-left: $margin * 1px !important;
+    }
+
+    .margin-right--#{$margin} {
+        margin-right: $margin * 1px !important;
+    }
+
+    .margin-top--#{$margin} {
+        margin-top: $margin * 1px !important;
+    }
+
+    .margin-bottom--#{$margin} {
+        margin-bottom: $margin * 1px !important;
+    }
+
+    .margin-vertical--#{$margin} {
+        @extend .margin-top--#{$margin};
+        @extend .margin-bottom--#{$margin};
+    }
+
+    .margin-horizontal--#{$margin} {
+        @extend .margin-left--#{$margin};
+        @extend .margin-right--#{$margin};
+    }
+}
+
+@mixin make-all-margins() {
+    @include make-margins($margin-none);
+    @include make-margins($margin-sm);
+    @include make-margins($margin-base);
+    @include make-margins($margin-lg);
+    @include make-margins($margin-xl);
+    @include make-margins($margin-xxl);
+}

@@ -10,16 +10,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
-const authentication_service_1 = require("./../../core/services/authentication.service");
+const authentication_service_1 = require("app/core/services/authentication.service");
 let NavigationComponent = class NavigationComponent {
     constructor(authenticationService) {
         this.authenticationService = authenticationService;
+        this.activeNavItemChange = new core_1.EventEmitter();
         this.userData = authenticationService.user;
     }
     ngOnInit() {
         console.log('NavigationComponent -> ngOnInit');
     }
+    setActiveNav(name) {
+        this.activeNavItem = name;
+        this.activeNavItemChange.emit(name);
+    }
 };
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], NavigationComponent.prototype, "parentComponent", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], NavigationComponent.prototype, "navLinks", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], NavigationComponent.prototype, "activeNavItem", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], NavigationComponent.prototype, "activeNavItemChange", void 0);
 NavigationComponent = __decorate([
     core_1.Component({
         moduleId: module.id.toString(),

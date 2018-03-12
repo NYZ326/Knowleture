@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-using Learnbook_Data.Models;
+using Knowleture_Data.Models;
 
 namespace Knowleture_Web.Models
 {

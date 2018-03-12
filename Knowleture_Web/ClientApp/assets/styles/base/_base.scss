@@ -48,8 +48,31 @@ ul {
     }
 
     &--dashboard {
-        background-color: color(extralightgray);
+        background-color: color(extralightgraySecondary);
         min-height: 100%;
-        margin-top: 126px;
+        margin-top: 80px;
+    }
+}
+
+.app-logo {
+    position: absolute;
+    top: 2rem;
+    left: 5rem;
+    width: 60px;
+    height: 60px;
+}
+
+.app-footer {
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    span {
+        color: color(gray);
+        font-size: 0.825rem;
     }
 }

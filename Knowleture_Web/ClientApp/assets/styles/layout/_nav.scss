@@ -3,12 +3,12 @@
     top: 0;
     left: 0;
     width: 100vw;
-    background-color: color(darkblue);
+    background-color: color(white);
     z-index: 1000;
 
     &__container {
         width: 90%;
-        height: 70px;
+        height: 80px;
         margin: 0 auto;
         display: flex;
         justify-content: flex-start;
@@ -26,8 +26,8 @@
 
         span {
             display: inline-block;
-            color: color(white);
-            font-size: 0.925rem;
+            color: color(black);
+            font-size: 0.825rem;
             font-weight: 700;
             font-family: $montserrat;
             letter-spacing: 0.1rem;
@@ -43,11 +43,64 @@
     }
 
     &__nav {
-        margin-left: auto;
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: row;
-        align-content: center;
-        align-items: center;
+
+        &--secondary {
+            margin-left: auto;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            align-content: center;
+            align-items: center;
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            flex-direction: row;
+
+            &__item {
+                position: relative;
+                text-transform: uppercase;
+                font-family: $montserrat;
+                font-weight: 700;
+                letter-spacing: 0.02rem;
+                color: color(lightgray);
+                padding: 1rem;
+                margin-right: 0.5rem;
+                cursor: pointer;
+                transition: all 0.2s ease-out;
+                @include font-size(0.75);
+
+                &:last-of-type {
+                    margin-right: 0;
+                }
+
+                &.active,
+                &:hover {
+                    color: color(blue);
+                }
+
+                &.active {
+                    &:before {
+                        background-color: color(blue);
+                    }
+                }
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 4px;
+                    height: 4px;
+                    background-color: transparent;
+                    border-radius: 50%;
+                    transition: all 0.2s ease-out;
+                }
+            }
+        }
     }
 }

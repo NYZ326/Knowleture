@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 
 using AutoMapper;
 
-using Learnbook_Data.Models;
-using Learnbook_Data.Repositories;
+using Knowleture_Data.Models;
+using Knowleture_Data.Repositories;
 using Knowleture_Web.Models;
 
 namespace Knowleture_Web.Controllers

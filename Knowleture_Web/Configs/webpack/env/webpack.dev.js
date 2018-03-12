@@ -20,10 +20,10 @@ module.exports = webpackMerge(commonConfig, {
     },
 
     output: {
-        path: ROOT + '/wwwroot/dev/',
+        path: ROOT + '/wwwroot/build/',
         filename: 'dist/[name].bundle.js',
         chunkFilename: 'dist/[id].chunk.js',
-        publicPath: '/dev/'
+        publicPath: '/build/'
     },
 
     devServer: {

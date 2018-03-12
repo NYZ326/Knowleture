@@ -1,0 +1,50 @@
+﻿<div class="dashboard dashboard--home padding-vertical--30">
+    <div class="container">
+        <div class="dashboard__header">
+            <h2>Current Semester</h2>
+            <p>Here's an overview for your current semester.</p>
+        </div>
+
+        <div class="dashboard__content padding-vertical--20">
+            <div class="dashboard__content--overview margin-bottom--50">
+                <card [type]="'stats'"
+                      [style.width.%]="100"
+                      [data]="">
+                    <div class="overview-container">
+                        <div class="overview-content">
+                            <h4>Assignments Completed</h4>
+                            <p>Assignments</p>
+                        </div>
+
+                        <div class="overview-content">
+                            <h4>Total Students</h4>
+                            <p>Students</p>
+                        </div>
+
+                        <div class="overview-content">
+                            <h4>Semester Statistics</h4>
+                            <p>Reports</p>
+                        </div>
+                    </div>
+                </card>
+            </div>
+
+            <div class="dashboard__content--courses">
+                <h3>Courses</h3>
+
+                <div class="dashboard__content__list">
+                    <card [type]="'stats'"
+                          [style.width.%]="25"
+                          [data]=""></card>
+                    <card [type]="'stats'"
+                          [style.width.%]="25"
+                          [data]=""></card>
+                    <card [type]="'stats'"
+                          [style.width.%]="25"
+                          [data]=""></card>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

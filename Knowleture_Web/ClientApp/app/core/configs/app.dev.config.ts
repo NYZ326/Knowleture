@@ -7,7 +7,7 @@ export class AppConfig {
     public readonly instructorConfig = {
         nav: [
             {
-                name: 'Home',
+                name: 'Dashboard',
                 icon: 'house'
             },
             {
@@ -32,7 +32,7 @@ export class AppConfig {
     public readonly studentConfig = {
         nav: [
             {
-                name: 'Home',
+                name: 'Dashboard',
                 icon: 'house'
             },
             {

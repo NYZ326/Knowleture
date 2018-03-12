@@ -57,3 +57,14 @@
         }
     }
 }
+
+.link {
+
+    &--primary {
+        color: color(blue);
+    }
+
+    &--secondary {
+        color: color(lightgray);
+    }
+}
