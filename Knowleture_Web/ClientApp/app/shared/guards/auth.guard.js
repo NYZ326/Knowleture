@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
 const router_1 = require("@angular/router");
-const authentication_service_1 = require("./../../core/services/authentication.service");
+const authentication_service_1 = require("app/core/services/authentication.service");
 let AuthGuard = class AuthGuard {
     constructor(router, authenticationService) {
         this.router = router;

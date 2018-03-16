@@ -16,6 +16,14 @@
                 padding-left: 60px;
             }
         }
+
+        .icons {
+            position: absolute;
+            top: 50%;
+            left: 24px;
+            transform: translateY(-50%);
+            color: color(lightgray);
+        }
     }
 
     &--has-input {
@@ -78,13 +86,5 @@
 
     &__forget-password {
         margin-top: 15px;
-    }
-
-    .icons {
-        position: absolute;
-        top: 50%;
-        left: 24px;
-        transform: translateY(-50%);
-        color: color(lightgray);
     }
 }

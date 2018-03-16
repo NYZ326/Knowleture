@@ -12,8 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
 const http_1 = require("@angular/common/http");
 require("rxjs/add/operator/map");
-const app_dev_config_1 = require("./../configs/app.dev.config");
-const user_1 = require("./../../shared/models/user");
+const app_dev_config_1 = require("app/core/configs/app.dev.config");
+const user_1 = require("app/shared/models/user");
 let AuthenticationService = class AuthenticationService {
     constructor(http, config) {
         this.http = http;

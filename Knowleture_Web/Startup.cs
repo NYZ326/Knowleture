@@ -72,7 +72,7 @@ namespace LearnbookApp_v2
 
             services.AddMvc()
                     .AddJsonOptions(options => {
-                        options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+                        options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
                         options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                     });
 

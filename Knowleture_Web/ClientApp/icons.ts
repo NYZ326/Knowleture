@@ -13,3 +13,5 @@ import './assets/images/icons/house.svg';
 import './assets/images/icons/house-color.svg';
 import './assets/images/icons/house-darkblue.svg';
 import './assets/images/icons/bell.svg';
+import './assets/images/icons/envelope.svg';
+import './assets/images/icons/arrow-left-color.svg';

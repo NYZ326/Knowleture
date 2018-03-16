@@ -67,4 +67,14 @@
     &--secondary {
         color: color(lightgray);
     }
+
+    &--w-icon {
+        display: flex;
+        justify-content: flex-start;
+        align-content: center;
+
+        .icons {
+            margin-right: 5px;
+        }
+    }
 }

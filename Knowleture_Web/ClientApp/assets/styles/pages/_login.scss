@@ -1,6 +1,6 @@
 .feature-container {
     display: flex;
-    width: 30vw;
+    width: 60vw;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -15,41 +15,11 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: right center;
-
-    &__logo {
-        position: absolute;
-        top: 5vh;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    &__content {
-        text-align: center;
-        padding: 0 3rem;
-
-        &__title {
-            color: color(white);
-            text-transform: uppercase;
-            letter-spacing: 0.02rem;
-        }
-
-        &__description {
-            color: color(white);
-            @include font-size(1.4);
-        }
-
-        &__btn {
-            font-size: 0.7rem;
-            padding: 12px 24px;
-            background-color: #fff;
-            color: #507496;
-        }
-    }
 }
 
 .login-container {
     position: relative;
-    width: 70vw;
+    width: 40vw;
     height: 100vh;
     margin-right: 30vw;
     display: flex;
@@ -60,7 +30,7 @@
 
     &__form {
         position: relative;
-        width: 40%;
+        width: 75%;
         margin: 0 auto;
 
         .form-control {
@@ -71,28 +41,52 @@
                     width: 100%;
                     opacity: 1;
                     visibility: visible;
-                    left: 50%;
-                    right: auto;
-                    bottom: -3rem;
-                    transform: translateX(-50%);
+                    left: 0;
+                    right: 0;
+                    bottom: -5rem;
+                    text-align: center;
                 }
             }
         }
     }
 }
 
+.form-text {
+    margin-bottom: 2rem;
+
+    h2 {
+        @include font-size(2.25);
+    }
+
+    p {
+        color: color(gray);
+    }
+}
+
 .login-form {
+    transition: all 250ms cubic-bezier(.28,.05,.32,.94);
 
-    &__text {
-        margin-bottom: 2rem;
+    &--hide {
+        transform: translateX(-50%);
+        opacity: 0;
+        visibility: hidden;
+    }
+}
 
-        h2 {
-            @include font-size(2.25);
-        }
+.forget-password-form {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 250ms cubic-bezier(.28,.05,.32,.94);
 
-        p {
-            color: color(gray);
-        }
+    &--show {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
     }
 }
 

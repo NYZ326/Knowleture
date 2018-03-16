@@ -1,7 +1,7 @@
 ﻿import { Routes, RouterModule } from '@angular/router';
 
-import { LoginComponent } from './containers/login/login.component';
-import { DashboardComponent } from './containers/dashboard/dashboard.component';
+import { LoginComponent } from './modules/login/login/login.component';
+import { DashboardComponent } from './modules/dashboard/dashboard/dashboard.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 
 const appRoutes: Routes = [
@@ -12,4 +12,4 @@ const appRoutes: Routes = [
     { path: '**', redirectTo: '' }
 ];
 
-export const routing = RouterModule.forRoot(appRoutes);
+export const Routing = RouterModule.forRoot(appRoutes);

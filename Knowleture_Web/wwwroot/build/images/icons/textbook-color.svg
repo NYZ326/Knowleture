@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title"
+aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink"
+width="64" height="64">
+  <title>Textbook</title>
+  <desc>A color styled icon from Orion Icon Library.</desc>
+  <path data-name="layer2"
+  d="M10 10v44a8 8 0 0 0 8 8h36V18H18a8 8 0 0 1-8-8" fill="#55a9f3"></path>
+  <path data-name="layer1" d="M53 2H18a8 8 0 0 0 0 16h35z" fill="#ffffff"></path>
+  <path data-name="opacity" d="M18 2a8 8 0 0 0-7.6 10.5A8 8 0 0 1 18 7h35V2z"
+  fill="#000064" opacity=".1"></path>
+  <path data-name="opacity" d="M10 10v44a8 8 0 0 0 8 8V18a8 8 0 0 1-8-8z"
+  fill="#000064" opacity=".15"></path>
+  <path data-name="layer1" fill="#ffffff" d="M22 26h20v16H22z"></path>
+  <path data-name="stroke" fill="none" stroke="#0070d2" stroke-linecap="round"
+  stroke-miterlimit="10" stroke-width="3" d="M18 10h31m5-8H18a8 8 0 0 0 0 16h36v44H18a8 8 0 0 1-8-8V10"
+  stroke-linejoin="miter"></path>
+  <path data-name="stroke" fill="none" stroke="#0070d2" stroke-linecap="round"
+  stroke-miterlimit="10" stroke-width="3" d="M22 26h20v16H22zM53 2v16" stroke-linejoin="miter"></path>
+</svg>

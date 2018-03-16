@@ -9,13 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\app\constants\components.ts" />
-    <None Remove="ClientApp\app\constants\directives.ts" />
+    <None Remove="ClientApp\app\modules\api\api.module.ts" />
+    <None Remove="ClientApp\app\modules\api\courses\courses.service.ts" />
+    <None Remove="ClientApp\app\modules\dashboard\dashboard.module.ts" />
+    <None Remove="ClientApp\app\shared\components\components.module.ts" />
     <None Remove="ClientApp\app\core\services\authentication.service.ts" />
+    <None Remove="ClientApp\app\modules\login\login.module.ts" />
+    <None Remove="ClientApp\app\shared\directives\directives.module.ts" />
     <None Remove="ClientApp\app\shared\models\assignment.ts" />
     <None Remove="ClientApp\app\shared\models\enrollment.ts" />
     <None Remove="ClientApp\app\shared\models\index.ts" />
-    <None Remove="ClientApp\app\containers\login\login.component.ts" />
+    <None Remove="ClientApp\app\modules\login\login.component.ts" />
     <None Remove="ClientApp\app\shared\directives\input-action.directive.ts" />
     <None Remove="ClientApp\app\shared\guards\auth.guard.ts" />
   </ItemGroup>
@@ -29,14 +33,18 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\app\constants\components.ts" />
-    <TypeScriptCompile Include="ClientApp\app\constants\directives.ts" />
+    <TypeScriptCompile Include="ClientApp\app\modules\api\api.module.ts" />
+    <TypeScriptCompile Include="ClientApp\app\modules\api\courses\courses.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\modules\dashboard\dashboard.module.ts" />
+    <TypeScriptCompile Include="ClientApp\app\shared\components\components.module.ts" />
     <TypeScriptCompile Include="ClientApp\app\core\services\authentication.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\modules\login\login.module.ts" />
+    <TypeScriptCompile Include="ClientApp\app\shared\directives\directives.module.ts" />
     <TypeScriptCompile Include="ClientApp\app\shared\models\assignment.ts" />
     <TypeScriptCompile Include="ClientApp\app\shared\models\enrollment.ts" />
     <TypeScriptCompile Include="ClientApp\app\shared\models\index.ts" />
-    <TypeScriptCompile Include="ClientApp\app\containers\login\login.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\shared\directives\input-action.directive.ts" />
+    <TypeScriptCompile Include="ClientApp\app\modules\login\login\login.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\shared\directives\input-action\input-action.directive.ts" />
     <TypeScriptCompile Include="ClientApp\app\shared\guards\auth.guard.ts" />
     <TypeScriptCompile Include="ClientApp\icons.ts" />
     <TypeScriptCompile Include="ClientApp\polyfills.ts" />

@@ -1,0 +1,127 @@
+﻿<div class="page-wrapper page-wrapper--login">
+    <div class="app-logo">
+        <img src="../build/images/knowleture-logo.svg" alt="Knowleture Logo" class="img-responsive" />
+    </div>
+
+    <div class="login-container">
+        <div class="login-container__form">
+            <form name="login-form"
+                  (ngSubmit)="lf.form.valid && onSubmit()"
+                  #lf="ngForm"
+                  novalidate
+                  class="login-form"
+                  [ngClass]="{'login-form--hide': isForgetPassword}">
+                <div class="form-text">
+                    <h2>Welcome</h2>
+                    <p>Please sign into your account.</p>
+                </div>
+
+                <div class="padding-bottom--30 margin-bottom--30 w-h-line">
+                    <div class="form-control form-control--w-logo">
+                        <i class="icons icons--user"></i>
+                        <input type="text"
+                               name="Username"
+                               class="form-control__input"
+                               [(ngModel)]="model.Username"
+                               #username="ngModel"
+                               checkInput
+                               [value]="model.Username"
+                               required />
+                        <label for="Username" class="form-control__label">Username</label>
+                        <span class="form-control__error" [ngClass]="{'form-control__error--has-error':lf.submitted && !username.valid}">Username is required</span>
+                    </div>
+
+                    <div class="form-control form-control--w-logo">
+                        <i class="icons icons--lock"></i>
+                        <input type="password"
+                               name="Password"
+                               class="form-control__input"
+                               [(ngModel)]="model.Password"
+                               #password="ngModel"
+                               checkInput
+                               [value]="model.Password"
+                               required />
+                        <label for="Password" class="form-control__label">Password</label>
+                        <span class="form-control__error" [ngClass]="{'form-control__error--has-error':lf.submitted && !password.valid}">Password is required</span>
+                    </div>
+                </div>
+
+                <div class="form-control flex flex--space">
+                    <div class="form-control__forget-password">
+                        <a href="javascript:;"
+                           class="link--primary"
+                           (click)="toggleForgetPasswordForm()">Forgot Password?</a>
+                    </div>
+
+                    <div class="form-control__submit">
+                        <span class="form-control__error" *ngIf="error">{{errorMsg}}</span>
+                        <button class="btn btn--primary btn--submit" [disabled]="loading" [ngClass]="{'btn--show-loader': loading}">
+                            <span class="btn--submit__text">Login</span>
+                            <div class="btn--submit__loader">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <form class="forget-password-form"
+                  [ngClass]="{'forget-password-form--show': isForgetPassword}"
+                  name="forget-password-form"
+                  (ngSubmit)="fp.form.valid && onForgetPasswordSubmit()"
+                  #fp="ngForm"
+                  novalidate>
+                <div class="form-text">
+                    <h2>No Worries!</h2>
+                    <p>Please enter an email associated with your account.</p>
+                </div>
+
+                <div class="padding-bottom--30 margin-bottom--30 w-h-line">
+                    <div class="form-control form-control--w-logo">
+                        <i class="icons icons--envelope"></i>
+                        <input type="email"
+                               name="Email"
+                               class="form-control__input"
+                               [(ngModel)]="userEmail"
+                               #email="ngModel"
+                               checkInput
+                               [value]="userEmail"
+                               required />
+                        <label for="Email" class="form-control__label">Email</label>
+                        <span class="form-control__error" [ngClass]="{'form-control__error--has-error':fp.submitted && !email.valid}">Email is required</span>
+                    </div>
+                </div>
+
+                <div class="form-control flex flex--space">
+                    <div class="form-control__forget-password">
+                        <a href="javascript:;"
+                           class="link--primary link--w-icon"
+                           (click)="toggleForgetPasswordForm()">
+                            <i class="icons icons--arrow-left-color"></i>
+                            Back to Login
+                        </a>
+                    </div>
+
+                    <div class="form-control__submit">
+                        <button class="btn btn--primary btn--submit" [disabled]="loading" [ngClass]="{'btn--show-loader': loading}">
+                            <span class="btn--submit__text">Submit</span>
+                            <div class="btn--submit__loader">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="app-footer">
+            <span>@{{currentYear}} Knowleture</span>
+        </div>
+    </div>
+
+    <div class="feature-container"></div>
+</div>

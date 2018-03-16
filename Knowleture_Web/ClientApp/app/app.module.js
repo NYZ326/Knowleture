@@ -12,11 +12,14 @@ const http_1 = require("@angular/common/http");
 const forms_1 = require("@angular/forms");
 const app_component_1 = require("./app.component");
 const app_routing_module_1 = require("./app-routing.module");
+const components_module_1 = require("app/shared/components/components.module");
+const directives_module_1 = require("app/shared/directives/directives.module");
 const app_dev_config_1 = require("./core/configs/app.dev.config");
 const auth_guard_1 = require("./shared/guards/auth.guard");
 const authentication_service_1 = require("./core/services/authentication.service");
-const components_1 = require("./constants/components");
-const directives_1 = require("./constants/directives");
+const api_module_1 = require("./modules/api/api.module");
+const login_module_1 = require("./modules/login/login.module");
+const dashboard_module_1 = require("./modules/dashboard/dashboard.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -25,11 +28,15 @@ AppModule = __decorate([
             platform_browser_1.BrowserModule,
             http_1.HttpClientModule,
             forms_1.FormsModule,
-            app_routing_module_1.routing
+            app_routing_module_1.Routing,
+            components_module_1.ComponentsModule,
+            directives_module_1.DirectivesModule,
+            api_module_1.ApiModule,
+            login_module_1.LoginModule,
+            dashboard_module_1.DashboardModule
         ],
         declarations: [
-            ...components_1.ComponentsList,
-            ...directives_1.DirectivesList
+            app_component_1.AppComponent
         ],
         providers: [
             platform_browser_1.Title,
